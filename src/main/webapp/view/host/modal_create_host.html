@@ -1,0 +1,381 @@
+<style>
+    .modal{
+        width: 900px;
+        margin-left: -450px;
+    }
+    .modal.fade.in {
+        top: 1%;
+    }
+    .nav.nav-tabs{
+        display:none;
+    }
+    .modal-header{
+        padding-bottom: 0;
+    }
+    .modal-body{
+        padding-top: 0;
+    }
+    .modal-body img{
+        margin-top: 15px;
+    }
+</style>
+
+<div class="cloud-modal">
+
+<!--第一步-->
+<div heading="" ng-show="steps[0].active">
+    <form name="form1" class="cloud-form" novalidate>
+        <div class="modal-header">
+            <h3>创建云主机<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+            <hr class="cloud-modal-divider">
+        </div>
+        <div class="modal-body cloud-form">
+            <div class="cloud-step-title-bg"><img src="img/host-step1.jpg"></div>
+
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span9 cloud-input-form">
+                        <div class="row-fluid">
+                            <div class="span4 text-right">主机名称：</div>
+                            <div class="span8">
+                                <div class="form-group"
+                                     ng-class="{'has-error': form1.hostName.$invalid}">
+                                    <input type="text" ng-required="true"
+                                           ng-model="newHost.hostName" name="hostName" ng-pattern="/^[a-zA-Z_][A-Za-z0-9_]*$/" 
+                                           class="input-xlarge">
+                                    <span class="help-block"
+                                          ng-show="form1.hostName.$error.pattern"><i>主机名称必须为字符，数字和下划线</i></span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">推荐配置：</div>
+                            <div class="span8">
+                                <button type="button" class="cloud-btn-checkbox"
+                                        ng-model="newHost.hostType" btn-radio="1" ng-click="selectType(1)">
+                                    经济型
+                                </button>
+                                <button type="button" class="cloud-btn-checkbox"
+                                        ng-model="newHost.hostType" btn-radio="2" ng-click="selectType(2)">
+                                    企业型
+                                </button>
+                                <button type="button" class="cloud-btn-checkbox"
+                                        ng-model="newHost.hostType" btn-radio="3"  ng-click="selectType(3)">
+                                    高配型
+                                </button>
+                                <button type="button" class="cloud-btn-checkbox"
+                                        ng-model="newHost.hostType" btn-radio="4"  ng-click="selectType(4)">
+                                    自定义
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">CPU：</div>
+                            <div class="span8">
+                                <div class="form-group"
+                                     ng-class="{'has-error': form1.cpu.$invalid}">
+                                    <div ui-slider="CPUOptions"  ng-model="cpusliderValue"
+                                         class="cloud-slider" ng-disabled="hostType!=100"></div>
+                                    <input ng-model="newHost.cpu" ng-enter="changeCPUSlider()" ng-disabled="hostType!=100" name="cpu"
+                                           required="true" type="number" name="cpu"
+                                           class="input-mini cloud-slider-input" >{{CPURange.unit}}
+                                    <div class="cloud-slider-text" >
+                                        <span class="pull-left">{{CPURange.min}}{{CPURange.unit}}</span>
+                                        <span class="pull-right">{{CPURange.max2}}{{CPURange.unit2}}</span>
+                                    </div>
+                                    <span class="help-block"
+                                          ng-show="form1.cpu.$error.pattern"><i>CPU的值只能是1、2、4、6、8、10、12、16、20、24、32</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">内存：</div>
+                            <div class="span8">
+                                <div class="form-group"
+                                     ng-class="{'has-error': form1.ram.$invalid}">
+                                    <div ui-slider="memoryOptions"  ng-model="ramsliderValue"
+                                         class="cloud-slider" ng-disabled="hostType!=100"></div>
+                                    <input ng-model="newHost.ram" ng-enter="changeMemSlider()" ng-disabled="hostType!=100"
+                                           required="true" type="number" name="ram"
+                                           class="input-mini cloud-slider-input" >{{memoryRange.unit}}
+                                    <div class="cloud-slider-text" >
+                                        <span class="pull-left">{{memoryRange.min}}{{memoryRange.unit}}</span>
+                                        <span class="pull-right">{{memoryRange.max2}}{{memoryRange.unit2}}</span>
+                                    </div>
+                                    <span class="help-block"
+                                          ng-show="form1.ram.$error.min"><i>内存不能小于{{memoryRange.min}}{{memoryRange.unit}}</i>
+                                    </span>
+                                    <span class="help-block"
+                                          ng-show="form1.ram.$error.max"><i>内存不能超过{{memoryRange.max2}}{{memoryRange.unit2}}</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">数据盘：</div>
+                            <div class="span8">
+                                <div class="form-group"
+                                     ng-class="{'has-error': form1.dataDiskSize.$invalid}">
+                                    <div ui-slider="diskOptions"  ng-model="disksliderValue"
+                                         class="cloud-slider" ng-disabled="hostType!=100"></div>
+                                    <input ng-model="newHost.dataDiskSize" ng-enter="changeDiskSlider()" ng-disabled="hostType!=100"
+                                           required="true" type="number" name="dataDiskSize"
+                                           class="input-mini cloud-slider-input" >{{diskRange.unit}}
+                                    <div class="cloud-slider-text" >
+                                        <span class="pull-left">{{diskRange.min}}{{diskRange.unit}}</span>
+                                        <span class="pull-right">{{diskRange.max2}}{{diskRange.unit2}}</span>
+                                    </div>
+                                    <span class="help-block"
+                                          ng-show="form1.dataDiskSize.$error.min"><i>数据盘不能小于{{diskRange.min}}{{diskRange.unit}}</i>
+                                    </span>
+                                    <span class="help-block"
+                                          ng-show="form1.dataDiskSize.$error.max"><i>数据盘不能超过{{diskRange.max2}}{{diskRange.unit2}}</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="modal-hr-1px">
+
+                        <div class="row-fluid">
+                            <div class="span4 text-right">操作系统：</div>
+                            <div class="span8">
+                                <div class="clearfix">
+                                    <button  type="button" class="cloud-btn-checkbox"
+                                             ng-model="osType" btn-radio="1">Windows</button>
+                                    <button type="button" class="cloud-btn-checkbox"
+                                            ng-model="osType" btn-radio="2">Linux</button>
+                                </div>
+
+                                <div class="cloud-grey-title" ng-show="osType==1">
+                                    <label class="radio" ng-repeat="item in osList.windows">
+                                        <input type="radio"  value="{{item.id}}"
+                                               ng-model="newHost.os" ng-click="selectWin()">
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                                <div class="cloud-grey-title" ng-show="osType==2">
+                                    <label class="radio" ng-repeat="item in osList.Linux">
+                                        <input type="radio"  value="{{item.id}}"
+                                               ng-model="newHost.os" ng-click="selectLinux()" >
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span2 text-right">购买数量：</div>
+                            <div class="span4">
+                                <select class="span6" ng-model="newHost.count">
+                                    <option value="1" selected="true">1台</option>
+                                </select>
+                            </div>
+                            <div class="span2 text-right">购买时长：</div>
+                            <div class="span4">
+                                <select class="input-small" ng-model="newHost.buyType" ng-change="changeType()">
+                                    <option value="1">按年</option>
+                                    <option value="2">按月</option>
+                                </select>
+                                <select class="input-small" ng-model="newHost.buyCount">
+                                    <option ng-repeat="t in datelist" >{{t}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <ng-include src="'view/host/price_info.html'"></ng-include>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <hr class="big-modal-footer-hr">
+            <button class="btn btn-large btn-info" ng-click="cancel()">取消</button>
+            <button class="btn btn-large btn-primary" ng-click="steps[0].active = false;steps[1].active = true"
+                    ng-disabled="form1.$invalid">下一步</button>
+        </div>
+    </form>
+</div>
+
+<!--第二步-->
+<div heading=""  ng-show="steps[1].active">
+    <form name="form2" class="cloud-form" novalidate>
+    <div class="modal-header">
+        <h3>创建云主机<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body cloud-form">
+        <div class="cloud-step-title-bg"><img src="img/host-step2.jpg"></div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span9 cloud-input-form">
+                    <div class="row-fluid">
+                        <div class="span4 text-right">数据中心：</div>
+                        <div class="span8">
+                            <select name="region" ng-model="newHost.region">
+                                <option value="1">华东双线</option>
+                                <option value="2">华南双线</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span4 text-right">网络：</div>
+                        <div class="span8">
+                            <button name="line" type="button" class="cloud-btn-checkbox"
+                                    ng-model="newHost.line" btn-radio="'无网络'">无网络</button>
+                            <button name="line" type="button" class="cloud-btn-checkbox"
+                                    ng-model="newHost.line" btn-radio="'电信'">电信</button>
+                            <button name="line" type="button" class="cloud-btn-checkbox"
+                                    ng-model="newHost.line" btn-radio="'联通'">联通</button>
+                            <button name="line" type="button" class="cloud-btn-checkbox"
+                                    ng-model="newHost.line" btn-radio="'BGP双线'">BGP双线</button>
+                        </div>
+                    </div>
+                    <div class="row-fluid" ng-show="newHost.line!='无网络'">
+                        <div class="span4 text-right">带宽类型：</div>
+                        <div class="span8">
+                            <label class="radio inline">
+                                <input name="speedType" ng-model="newHost.speedType"
+                                       type="radio"  value="独享">
+                                独享
+                            </label>
+                            <label  class="radio inline" >
+                                <input name="speedType" ng-model="newHost.speedType" type="radio"  value="按流量">
+                                按流量
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row-fluid" ng-show="newHost.line!='无网络'">
+                        <div class="span4 text-right">带宽：</div>
+                        <div class="span8">
+                            <div class="form-group"
+                                 ng-class="{'has-error': form2.bandwidth.$invalid}">
+                                <div ui-slider="speedOptions"  ng-model="bandwidthsliderValue"
+                                     class="cloud-slider"></div>
+                                <input ng-model="newHost.bandwidth" ng-enter="changeBandwidthSlider()" name="bandwidth"
+                                       required="true" type="number"
+                                       class="input-mini cloud-slider-input" >{{speedRange.unit}}
+                                <div class="cloud-slider-text" >
+                                    <span class="pull-left">{{speedRange.min}}{{speedRange.unit}}</span>
+                                    <span class="pull-right">{{speedRange.max2}}{{speedRange.unit2}}</span>
+                                </div>
+                                <span class="help-block"
+                                      ng-show="form2.bandwidth.$error.min"><i>带宽不能小于{{speedRange.min}}{{speedRange.unit}}</i>
+                                    </span>
+                                    <span class="help-block"
+                                          ng-show="form2.bandwidth.$error.max"><i>带宽不能超过{{speedRange.max2}}{{speedRange.unit2}}</i>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <ng-include src="'view/host/price_info.html'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <hr class="big-modal-footer-hr">
+        <button class="btn btn-large btn-info" ng-click="steps[0].active = true;steps[1].active = false">上一步</button>
+        <button class="btn btn-large btn-primary" ng-click="steps[1].active = false;steps[2].active = true;"
+                ng-disabled="form2.$invalid">下一步</button>
+    </div>
+        </form>
+</div>
+
+
+<!--第三步-->
+<div heading="" ng-show="steps[2].active">
+    <form name="form3" class="cloud-form" novalidate>
+    <div class="modal-header">
+        <h3>创建云主机<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body cloud-form">
+        <div class="cloud-step-title-bg"><img src="img/host-step3.jpg"></div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span9 cloud-input-form">
+                    <div class="row-fluid">
+                        <div class="span5 text-right">主机管理员名称：</div>
+                        <div class="span7">
+                            <div class="form-group"
+                                 ng-class="{'has-error': form3.admin_user.$invalid}">
+                                <input type="text" name="admin_user" class="input-xlarge"
+                                       ng-model="newHost.admin_user" ng-required="true">
+                                <span class="help-block"
+                                      ng-show="form3.admin_user.$error.required"><i>请填写主机管理员名称</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span5 text-right">管理员账户：</div>
+                        <div class="span7">
+                            <div class="form-group"
+                                 ng-class="{'has-error': form3.admin_account.$invalid}">
+                                <input type="text" name="admin_account" class="input-xlarge"
+                                       ng-model="newHost.admin_account" ng-required="true" disabled="disabled">
+                                <span class="help-block"
+                                      ng-show="form3.admin_account.$error.required"><i>请填写管理员账户</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span5 text-right">管理员密码：</div>
+                        <div class="span7">
+                            <div class="form-group"
+                                 ng-class="{'has-error': form3.admin_password.$invalid}">
+                                <input type="password" name="admin_password" class="input-xlarge" ng-required="true"
+                                       match="password_repeat" ng-model="newHost.admin_password"
+                                       ng-minlength="6">
+                                <span class="help-block"
+                                      ng-show="form3.admin_password.$error.required"><i>请填写管理员密码</i></span>
+                                <span class="help-block"
+                                      ng-show="form3.admin_password.$error.minlength"><i>密码不能少于6位数</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span5 text-right">确认密码：</div>
+                        <div class="span7">
+                            <div class="form-group"
+                                 ng-class="{'has-error': form3.password_repeat.$invalid}">
+                                <input type="password" name="password_repeat" class="input-xlarge"
+                                       match="newHost.admin_password" ng-model="password_repeat"
+                                       ng-required="true" ng-minlength="6">
+                                <span class="help-block"
+                                      ng-show="form3.password_repeat.$error.required"><i>请填写确认密码</i></span>
+                                <span class="help-block"
+                                      ng-show="form3.password_repeat.$error.match"><i>密码不一致</i></span>
+                                <span class="help-block"
+                                      ng-show="form3.password_repeat.$error.minlength"><i>密码不能少于6位数</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <ng-include src="'view/host/price_info.html'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <hr class="big-modal-footer-hr">
+        <button class="btn btn-large btn-info" ng-click="steps[1].active = true;steps[2].active = false;">上一步</button>
+        <button class="btn btn-large btn-primary" ng-click="ok()"
+                ng-disabled="form3.$invalid">确定创建</button>
+    </div>
+        </form>
+
+
+</div>
+
+</div>

@@ -1,0 +1,40 @@
+<style>
+    .modal{
+        width: 600px;
+        margin-left: -300px;
+    }
+    .modal-header{
+        padding-bottom: 0;
+    }
+    .modal-body.ng-scope{
+        padding-top: 0;
+    }
+</style>
+<div class="cloud-modal">
+    <div class="modal-header">
+        <h3>应急登录<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body cloud-form">
+        <div class="cloud-blue-border-title">
+            <p class="small">提供VNC Console供您登录维护主机：</p>
+            <p class="small">-当您的<span class="small">常用维护方式</span>无法登录主机时，可尝试使用本登录方式；<br>
+                -可使用VNC Console切换至OS单用户模式，进行云主机密码修改等维护操作。</p>
+        </div>
+        <div class="cloud-white-title">
+            <p>使用方式：<br>
+                首次登录请按照如下操作进行配置：<br>
+                默认登录用户名：<span class="blue">{{loginparam.username}}</span>  密码：<span class="blue">{{loginparam.password}}</span><br>
+            1.  点击<a ng-href="{{url}}" target="_blank">VNC URL</a>链接，进入应急登陆界面；<br>
+            2.  输入用户名及密码；<br>
+            3.  根据下方给出的IP地址，手动设置网卡的IP地址；<br>
+                网卡1（MAC：DE开头）：对应IP：{{loginparam.in_ip}}<br>
+                网卡2（MAC：00开头）：对应IP：{{loginparam.out_ip}}</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <hr class="big-modal-footer-hr">
+        <a class="btn btn-large" ng-href="{{url}}" target="_blank">登录</a>
+        <button class="btn btn-large btn-primary" ng-click="ok()">关闭</button>
+    </div>
+</div>

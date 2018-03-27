@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>云防护</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <a class="btn btn-warning" href="#/protection">
+                <i class="icon-arrow-left icon-white"></i>&nbsp;返回云防护列表
+            </a>
+            <button class="btn" ng-click="create()">创建规则</button>
+            <button class="btn" ng-click="edit()" ng-disabled="!editBtn"><i class="icon-pencil"></i>&nbsp;修改</button>
+            <button class="btn" ng-click="deleteitem()" ng-disabled="!deleteBtn"><i class="icon-remove"></i>&nbsp;删除</button>
+            <button class="btn btn-inverse" ng-click="refresh()"><i class="icon-repeat icon-white"></i></button>
+    </div>
+
+        <!--<div class="pull-right input-append" >
+            <input id="" type="text" ng-model="filterOptions.filterText">
+            <button class="btn" type="button"><i class="icon-search"></i></button>
+        </div>-->
+
+    </div>
+
+    <div class="clearfix cloud-blue-border-title">
+        当前云防护名称：<span>{{firewall.name}}</span>
+    </div>
+
+    <h5>上行规则<small>（从云资源访问外部）</small></h5>
+    <!--列表-->
+    <div class="cloud-grid" ng-grid="gridOptionsOutput"></div>
+
+
+    <h5>下行规则<small>（从外部访问云资源）</small></h5>
+    <!--列表-->
+    <div class="cloud-grid" ng-grid="gridOptionsInput"></div>
+
+</div>

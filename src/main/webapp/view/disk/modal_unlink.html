@@ -1,0 +1,29 @@
+<div class="cloud-modal">
+    <div class="modal-header">
+        <h3>卸载硬盘<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body cloud-form">
+        <div class="cloud-modal-info">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="cloud-orage-title">
+                            <i class="cloud-icon-info pull-left"></i>
+                            <div style="margin-left: 60px;">在卸载该硬盘前，请务必确认您已经安全的umount该硬盘所对应的文件系统！
+                            如果您不慎缺少此步骤，将导致文件系统损坏，甚至出现无法正常关闭主机的情况！</div>
+                        </div>
+                        <div style="padding: 0 30px;">
+                            硬盘名称：{{disk.diskName}}<br>
+                            挂载主机：{{disk.mntHost}}<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" ng-click="cancel()">取消</button>
+        <button class="btn btn-primary" ng-click="ok()">确定</button>
+    </div>
+</div>

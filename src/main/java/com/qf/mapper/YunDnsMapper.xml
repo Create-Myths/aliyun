@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunDnsMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunDns">
+    <id column="dnsid" jdbcType="BIGINT" property="dnsid" />
+    <result column="hid" jdbcType="BIGINT" property="hid" />
+    <result column="domain" jdbcType="VARCHAR" property="domain" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    dnsid, hid, domain
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunDnsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_dns
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_dns
+    where dnsid = #{dnsid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_dns
+    where dnsid = #{dnsid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunDnsExample">
+    delete from yun_dns
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunDns">
+    insert into yun_dns (dnsid, hid, domain
+      )
+    values (#{dnsid,jdbcType=BIGINT}, #{hid,jdbcType=BIGINT}, #{domain,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunDns">
+    insert into yun_dns
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dnsid != null">
+        dnsid,
+      </if>
+      <if test="hid != null">
+        hid,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dnsid != null">
+        #{dnsid,jdbcType=BIGINT},
+      </if>
+      <if test="hid != null">
+        #{hid,jdbcType=BIGINT},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunDnsExample" resultType="java.lang.Long">
+    select count(*) from yun_dns
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_dns
+    <set>
+      <if test="record.dnsid != null">
+        dnsid = #{record.dnsid,jdbcType=BIGINT},
+      </if>
+      <if test="record.hid != null">
+        hid = #{record.hid,jdbcType=BIGINT},
+      </if>
+      <if test="record.domain != null">
+        domain = #{record.domain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_dns
+    set dnsid = #{record.dnsid,jdbcType=BIGINT},
+      hid = #{record.hid,jdbcType=BIGINT},
+      domain = #{record.domain,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunDns">
+    update yun_dns
+    <set>
+      <if test="hid != null">
+        hid = #{hid,jdbcType=BIGINT},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dnsid = #{dnsid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunDns">
+    update yun_dns
+    set hid = #{hid,jdbcType=BIGINT},
+      domain = #{domain,jdbcType=VARCHAR}
+    where dnsid = #{dnsid,jdbcType=BIGINT}
+  </update>
+</mapper>

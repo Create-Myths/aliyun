@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+h1{ height:68px; border-bottom:3px solid #666; font-size:24px; line-height: 68px; color: #333; margin-bottom: 28px; }
+.left{ width:695px; background:#fff; border:1px solid #ccc; height:1050px; }
+.right{ width:290px; background:#fff; border:1px solid #ccc;padding-bottom:20px; height:1030px;}
+.left a:hover,.right a:hover{ color:#069}
+
+.left h2{ height:45px; border-bottom:1px solid #ddd; font-size:16px; color:#333; line-height:45px; padding-left:20px;}
+.left .box01{ background:url(../images/icon.png) no-repeat -350px -50px; height:280px; overflow:hidden; }
+.left .box02{ background:url(../images/icon.png) no-repeat -350px -350px; height:280px; overflow:hidden; }
+.left .box03{ line-height:30px; padding:10px 30px; font-size:14px}
+.left dl{ margin:25px 0 0 85px; overflow:hidden;  }
+.left dt { color:#333; font-size:16px;}
+.left dd a{ display:inline;margin-right:20px; line-height:36px;color:#08c; font-size:14px}
+.right h2{ border-bottom:2px solid #a7c9ec; height:45px; font-size:16px; color:#333; line-height:45px; padding-left:20px; }
+.right li{ height:36px; border-bottom:1px dotted #aaa; line-height:36px;overflow:hidden;margin:0 auto; width:245px;white-space:nowrap;text-overflow:ellipsis;  font-size:14px;  }
+.right li:last-child{ border:0;}
+.right li a{ color:#08c}

@@ -1,0 +1,22 @@
+<div class="cloud-modal">
+    <div class="modal-header">
+        <h3>{{modalConfirm.title}}<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body">
+        <div class="cloud-modal-info">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h4 style="font-weight: normal">{{modalConfirm.textLine1}} </h4>
+                        <h4 style="font-weight: normal">{{modalConfirm.textLine2}} </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" ng-click="cancel()">取消</button>
+        <button class="btn btn-primary" ng-click="ok()">确定</button>
+    </div>
+</div>

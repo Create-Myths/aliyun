@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录|手游云控制台</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/suncloud.css" rel="stylesheet">
+<style>
+.inloginform{ background:url(images/login.png) no-repeat ; width:537px; height:343px; margin:80px auto 0 auto;font-size:14px;}
+.inloginform H2{ height:38px; margin-top:15px; line-height:65px; color:#fff; font-size:16px; padding-left: 30px; }
+.inloginform form{ width:350px; margin:20px 0 0 85px; }
+.inloginform form dl{ overflow:hidden;  }
+.inloginform form dt{ line-height:30px;}
+.inloginform form dt b{color:#0472b4; }
+.inloginform form dt span{ color:#666; font-size:12px; padding-left:10px;}
+.inloginform form dd{ position:relative; margin-bottom: 10px; }
+.inloginform form dd input{ width:260px; height:32px; line-height:32px; background:url(images/input_bg.gif) repeat-x;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box; padding:0 20px 0 50px;}
+.inloginform form dd input:focus{border-color: #66afe9;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);}
+.inloginform form dd .icon-usn{ background:url(images/icon-login.png) no-repeat; width:14px; height:12px; position:absolute; left:20px; top:10px; }
+.inloginform form dd .icon-psw{ background:url(images/icon-login.png) 0 -83px no-repeat; width:14px; height:14px; position:absolute; left:20px; top:10px; }
+.inloginform form .msg{ height:30px;padding-top:0px;}
+.inloginform form .msg input{margin-right:15px;}
+.inloginform .sub{ cursor:pointer;background:url(images/bt-login.gif) no-repeat; width:140px; height:41px; border:0;margin-top:5px; margin-left: 80px}
+
+</style>
+</head>
+<body>
+<!-- header -->
+<div class="navbar navbar-fixed-top cloud-nav">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+        <div class="row-fluid cloud-header">
+            <div class="span2 text-center cloud-logo">
+                <a href="#">阳光云Version1.0</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="loginform">
+    <div class="inloginform">
+        <h2>用户登陆</h2>
+        <form >
+            <dl>
+                <dt><b>用户名</b><span>Username</span></dt>
+                <dd><span class="icon-usn"></span><input type="text" name="username" /></dd>
+                <dt><b>密码</b><span>Password</span></dt>
+                <dd><span class="icon-psw"></span><input type="password" name="password" /></dd>
+            </dl>
+            
+          <div class="msg"><input type="checkbox" name="rememberme" onclick="remember()" />记住用户名<span style="margin-left:20px; color:red; display:none" class="error">用户名或密码错误！</span></div>
+        </form>
+        <input type="button" class="sub" value="" onclick="submit()" />
+
+    </div>
+</div>
+
+<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("input[name='rememberme']").val(false);
+    });
+
+    function remember(){
+        if ($("input[name='rememberme']").val()=='false') {
+            $("input[name='rememberme']").val(true);
+        } else {
+            $("input[name='rememberme']").val(false);
+        }
+    };
+
+    function submit () {
+        $(".error").hide();
+        var data = {};
+        data.username = $("input[name='username']").val();
+        data.password = $("input[name='password']").val();
+        data.rememberme = $("input[name='rememberme']").val()=='true' ? 1 : 0;
+        $.ajax({
+            type: 'POST',
+            url: '../api/index.php?r=user/login',
+            data: data,
+            dataType: 'json',
+            success: function(data){
+                if (data['result'] == "true") {
+                    location.pathname = '/'; // + location.hash;
+                } else {
+                    $(".error").show();
+                }
+                console.log(data);
+            },
+        });
+    }
+</script>
+</body>
+</html>

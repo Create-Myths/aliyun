@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunWorklistMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunWorklist">
+    <id column="workid" jdbcType="BIGINT" property="workid" />
+    <result column="worktypeid" jdbcType="BIGINT" property="worktypeid" />
+    <result column="problemcontent" jdbcType="VARCHAR" property="problemcontent" />
+    <result column="committime" jdbcType="TIMESTAMP" property="committime" />
+    <result column="workstate" jdbcType="SMALLINT" property="workstate" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    workid, worktypeid, problemcontent, committime, workstate, operation
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunWorklistExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_worklist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_worklist
+    where workid = #{workid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_worklist
+    where workid = #{workid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunWorklistExample">
+    delete from yun_worklist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunWorklist">
+    insert into yun_worklist (workid, worktypeid, problemcontent, 
+      committime, workstate, operation
+      )
+    values (#{workid,jdbcType=BIGINT}, #{worktypeid,jdbcType=BIGINT}, #{problemcontent,jdbcType=VARCHAR}, 
+      #{committime,jdbcType=TIMESTAMP}, #{workstate,jdbcType=SMALLINT}, #{operation,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunWorklist">
+    insert into yun_worklist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="workid != null">
+        workid,
+      </if>
+      <if test="worktypeid != null">
+        worktypeid,
+      </if>
+      <if test="problemcontent != null">
+        problemcontent,
+      </if>
+      <if test="committime != null">
+        committime,
+      </if>
+      <if test="workstate != null">
+        workstate,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="workid != null">
+        #{workid,jdbcType=BIGINT},
+      </if>
+      <if test="worktypeid != null">
+        #{worktypeid,jdbcType=BIGINT},
+      </if>
+      <if test="problemcontent != null">
+        #{problemcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="committime != null">
+        #{committime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workstate != null">
+        #{workstate,jdbcType=SMALLINT},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunWorklistExample" resultType="java.lang.Long">
+    select count(*) from yun_worklist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_worklist
+    <set>
+      <if test="record.workid != null">
+        workid = #{record.workid,jdbcType=BIGINT},
+      </if>
+      <if test="record.worktypeid != null">
+        worktypeid = #{record.worktypeid,jdbcType=BIGINT},
+      </if>
+      <if test="record.problemcontent != null">
+        problemcontent = #{record.problemcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.committime != null">
+        committime = #{record.committime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.workstate != null">
+        workstate = #{record.workstate,jdbcType=SMALLINT},
+      </if>
+      <if test="record.operation != null">
+        operation = #{record.operation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_worklist
+    set workid = #{record.workid,jdbcType=BIGINT},
+      worktypeid = #{record.worktypeid,jdbcType=BIGINT},
+      problemcontent = #{record.problemcontent,jdbcType=VARCHAR},
+      committime = #{record.committime,jdbcType=TIMESTAMP},
+      workstate = #{record.workstate,jdbcType=SMALLINT},
+      operation = #{record.operation,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunWorklist">
+    update yun_worklist
+    <set>
+      <if test="worktypeid != null">
+        worktypeid = #{worktypeid,jdbcType=BIGINT},
+      </if>
+      <if test="problemcontent != null">
+        problemcontent = #{problemcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="committime != null">
+        committime = #{committime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workstate != null">
+        workstate = #{workstate,jdbcType=SMALLINT},
+      </if>
+      <if test="operation != null">
+        operation = #{operation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where workid = #{workid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunWorklist">
+    update yun_worklist
+    set worktypeid = #{worktypeid,jdbcType=BIGINT},
+      problemcontent = #{problemcontent,jdbcType=VARCHAR},
+      committime = #{committime,jdbcType=TIMESTAMP},
+      workstate = #{workstate,jdbcType=SMALLINT},
+      operation = #{operation,jdbcType=VARCHAR}
+    where workid = #{workid,jdbcType=BIGINT}
+  </update>
+</mapper>

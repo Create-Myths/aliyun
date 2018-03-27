@@ -1,0 +1,14 @@
+{
+  "Linux": [
+    {
+      "id": "1",
+      "name": "centos6.4"
+    }
+  ],
+  "windows": [
+    {
+      "id": "2",
+      "name": "windows2008"
+    }
+  ]
+};

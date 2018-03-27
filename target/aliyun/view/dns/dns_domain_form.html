@@ -1,0 +1,24 @@
+<form name="form" class="cloud-form" novalidate>
+    <div class="cloud-modal">
+        <div class="modal-header">
+            <h3>{{operationType}}域名<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+            <hr class="cloud-modal-divider">
+        </div>
+        <div class="modal-body cloud-form">
+            <div class="cloud-modal-info ">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span3 text-right">域名：</div>
+                        <div class="span9">
+                            <input required="true" type="text" ng-model="newDnsDomain.domain">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="cancel()">取消</button>
+            <button class="btn btn-primary" ng-click="ok()" ng-disabled="form.$invalid">确定</button>
+        </div>
+    </div>
+</form>

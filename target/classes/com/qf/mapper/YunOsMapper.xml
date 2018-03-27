@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunOsMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunOs">
+    <id column="osid" jdbcType="BIGINT" property="osid" />
+    <result column="ostype" jdbcType="VARCHAR" property="ostype" />
+    <result column="osname" jdbcType="VARCHAR" property="osname" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    osid, ostype, osname
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunOsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_os
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_os
+    where osid = #{osid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_os
+    where osid = #{osid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunOsExample">
+    delete from yun_os
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunOs">
+    insert into yun_os (osid, ostype, osname
+      )
+    values (#{osid,jdbcType=BIGINT}, #{ostype,jdbcType=VARCHAR}, #{osname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunOs">
+    insert into yun_os
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="osid != null">
+        osid,
+      </if>
+      <if test="ostype != null">
+        ostype,
+      </if>
+      <if test="osname != null">
+        osname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="osid != null">
+        #{osid,jdbcType=BIGINT},
+      </if>
+      <if test="ostype != null">
+        #{ostype,jdbcType=VARCHAR},
+      </if>
+      <if test="osname != null">
+        #{osname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunOsExample" resultType="java.lang.Long">
+    select count(*) from yun_os
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_os
+    <set>
+      <if test="record.osid != null">
+        osid = #{record.osid,jdbcType=BIGINT},
+      </if>
+      <if test="record.ostype != null">
+        ostype = #{record.ostype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.osname != null">
+        osname = #{record.osname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_os
+    set osid = #{record.osid,jdbcType=BIGINT},
+      ostype = #{record.ostype,jdbcType=VARCHAR},
+      osname = #{record.osname,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunOs">
+    update yun_os
+    <set>
+      <if test="ostype != null">
+        ostype = #{ostype,jdbcType=VARCHAR},
+      </if>
+      <if test="osname != null">
+        osname = #{osname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where osid = #{osid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunOs">
+    update yun_os
+    set ostype = #{ostype,jdbcType=VARCHAR},
+      osname = #{osname,jdbcType=VARCHAR}
+    where osid = #{osid,jdbcType=BIGINT}
+  </update>
+</mapper>

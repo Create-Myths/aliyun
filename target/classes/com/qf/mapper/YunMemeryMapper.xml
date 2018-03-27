@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunMemeryMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunMemery">
+    <id column="mid" jdbcType="BIGINT" property="mid" />
+    <result column="hid" jdbcType="BIGINT" property="hid" />
+    <result column="memname" jdbcType="VARCHAR" property="memname" />
+    <result column="memsize" jdbcType="VARCHAR" property="memsize" />
+    <result column="targetip" jdbcType="VARCHAR" property="targetip" />
+    <result column="tport" jdbcType="VARCHAR" property="tport" />
+    <result column="sourceip" jdbcType="VARCHAR" property="sourceip" />
+    <result column="memtype" jdbcType="SMALLINT" property="memtype" />
+    <result column="buynum" jdbcType="INTEGER" property="buynum" />
+    <result column="buytype" jdbcType="INTEGER" property="buytype" />
+    <result column="buytime" jdbcType="INTEGER" property="buytime" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="periodtime" jdbcType="TIMESTAMP" property="periodtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    mid, hid, memname, memsize, targetip, tport, sourceip, memtype, buynum, buytype, 
+    buytime, createtime, periodtime
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunMemeryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_memery
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_memery
+    where mid = #{mid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_memery
+    where mid = #{mid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunMemeryExample">
+    delete from yun_memery
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunMemery">
+    insert into yun_memery (mid, hid, memname, 
+      memsize, targetip, tport, 
+      sourceip, memtype, buynum, 
+      buytype, buytime, createtime, 
+      periodtime)
+    values (#{mid,jdbcType=BIGINT}, #{hid,jdbcType=BIGINT}, #{memname,jdbcType=VARCHAR}, 
+      #{memsize,jdbcType=VARCHAR}, #{targetip,jdbcType=VARCHAR}, #{tport,jdbcType=VARCHAR}, 
+      #{sourceip,jdbcType=VARCHAR}, #{memtype,jdbcType=SMALLINT}, #{buynum,jdbcType=INTEGER}, 
+      #{buytype,jdbcType=INTEGER}, #{buytime,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{periodtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunMemery">
+    insert into yun_memery
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        mid,
+      </if>
+      <if test="hid != null">
+        hid,
+      </if>
+      <if test="memname != null">
+        memname,
+      </if>
+      <if test="memsize != null">
+        memsize,
+      </if>
+      <if test="targetip != null">
+        targetip,
+      </if>
+      <if test="tport != null">
+        tport,
+      </if>
+      <if test="sourceip != null">
+        sourceip,
+      </if>
+      <if test="memtype != null">
+        memtype,
+      </if>
+      <if test="buynum != null">
+        buynum,
+      </if>
+      <if test="buytype != null">
+        buytype,
+      </if>
+      <if test="buytime != null">
+        buytime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="periodtime != null">
+        periodtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="hid != null">
+        #{hid,jdbcType=BIGINT},
+      </if>
+      <if test="memname != null">
+        #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="memsize != null">
+        #{memsize,jdbcType=VARCHAR},
+      </if>
+      <if test="targetip != null">
+        #{targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="tport != null">
+        #{tport,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceip != null">
+        #{sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="memtype != null">
+        #{memtype,jdbcType=SMALLINT},
+      </if>
+      <if test="buynum != null">
+        #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="periodtime != null">
+        #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunMemeryExample" resultType="java.lang.Long">
+    select count(*) from yun_memery
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_memery
+    <set>
+      <if test="record.mid != null">
+        mid = #{record.mid,jdbcType=BIGINT},
+      </if>
+      <if test="record.hid != null">
+        hid = #{record.hid,jdbcType=BIGINT},
+      </if>
+      <if test="record.memname != null">
+        memname = #{record.memname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memsize != null">
+        memsize = #{record.memsize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetip != null">
+        targetip = #{record.targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tport != null">
+        tport = #{record.tport,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceip != null">
+        sourceip = #{record.sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memtype != null">
+        memtype = #{record.memtype,jdbcType=SMALLINT},
+      </if>
+      <if test="record.buynum != null">
+        buynum = #{record.buynum,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytype != null">
+        buytype = #{record.buytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytime != null">
+        buytime = #{record.buytime,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.periodtime != null">
+        periodtime = #{record.periodtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_memery
+    set mid = #{record.mid,jdbcType=BIGINT},
+      hid = #{record.hid,jdbcType=BIGINT},
+      memname = #{record.memname,jdbcType=VARCHAR},
+      memsize = #{record.memsize,jdbcType=VARCHAR},
+      targetip = #{record.targetip,jdbcType=VARCHAR},
+      tport = #{record.tport,jdbcType=VARCHAR},
+      sourceip = #{record.sourceip,jdbcType=VARCHAR},
+      memtype = #{record.memtype,jdbcType=SMALLINT},
+      buynum = #{record.buynum,jdbcType=INTEGER},
+      buytype = #{record.buytype,jdbcType=INTEGER},
+      buytime = #{record.buytime,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      periodtime = #{record.periodtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunMemery">
+    update yun_memery
+    <set>
+      <if test="hid != null">
+        hid = #{hid,jdbcType=BIGINT},
+      </if>
+      <if test="memname != null">
+        memname = #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="memsize != null">
+        memsize = #{memsize,jdbcType=VARCHAR},
+      </if>
+      <if test="targetip != null">
+        targetip = #{targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="tport != null">
+        tport = #{tport,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceip != null">
+        sourceip = #{sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="memtype != null">
+        memtype = #{memtype,jdbcType=SMALLINT},
+      </if>
+      <if test="buynum != null">
+        buynum = #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        buytype = #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        buytime = #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="periodtime != null">
+        periodtime = #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where mid = #{mid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunMemery">
+    update yun_memery
+    set hid = #{hid,jdbcType=BIGINT},
+      memname = #{memname,jdbcType=VARCHAR},
+      memsize = #{memsize,jdbcType=VARCHAR},
+      targetip = #{targetip,jdbcType=VARCHAR},
+      tport = #{tport,jdbcType=VARCHAR},
+      sourceip = #{sourceip,jdbcType=VARCHAR},
+      memtype = #{memtype,jdbcType=SMALLINT},
+      buynum = #{buynum,jdbcType=INTEGER},
+      buytype = #{buytype,jdbcType=INTEGER},
+      buytime = #{buytime,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      periodtime = #{periodtime,jdbcType=TIMESTAMP}
+    where mid = #{mid,jdbcType=BIGINT}
+  </update>
+</mapper>

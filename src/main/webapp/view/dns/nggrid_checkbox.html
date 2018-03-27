@@ -1,0 +1,7 @@
+<div class="ngSelectionCell">
+
+    <input ng-if="row.getProperty('name') == '@'" ng-disabled="true"
+            tabindex="-1" class="ngSelectionCheckbox" type="checkbox" />
+    <input ng-if="row.getProperty('name') != '@'"
+           tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" />
+</div>

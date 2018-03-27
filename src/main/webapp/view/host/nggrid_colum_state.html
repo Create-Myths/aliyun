@@ -1,0 +1,14 @@
+<div class="ngCellText">
+<span ng-if="row.getProperty(col.field) == -1" class="creating">
+    <i></i>创建中...
+    </span>
+    <span ng-if="row.getProperty(col.field) == 0" class="shutdown">
+    <i></i>已停止
+    </span>
+    <span ng-if="row.getProperty(col.field) == 1" class="start">
+    <i></i>正常运行
+    </span>
+    <span ng-if="row.getProperty(col.field) == 2" class="poweroff">
+    已关机
+    </span>
+</div>

@@ -1,0 +1,218 @@
+{
+  "result": "true",
+  "errortype": "0",
+  "errormsg": "",
+  "param": {
+    "BalancerList": [
+      {
+        "id": "10",
+        "name": "testname",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131219 14:18:30",
+        "end_time": "20131219 14:18:30"
+      },
+      {
+        "id": "34",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:27:07",
+        "end_time": "20131223 10:27:07"
+      },
+      {
+        "id": "35",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 11:20:30",
+        "end_time": "20131223 11:20:30"
+      },
+      {
+        "id": "33",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:26:09",
+        "end_time": "20131223 10:26:09"
+      },
+      {
+        "id": "16",
+        "name": "testname",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131219 14:18:31",
+        "end_time": "20131219 14:18:31"
+      },
+      {
+        "id": "17",
+        "name": "abc",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "120",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131220 11:19:33",
+        "end_time": "20131220 11:19:33"
+      },
+      {
+        "id": "18",
+        "name": "abc",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "120",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131220 11:19:55",
+        "end_time": "20131220 11:19:55"
+      },
+      {
+        "id": "30",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:18:35",
+        "end_time": "20131223 10:18:35"
+      },
+      {
+        "id": "29",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:17:49",
+        "end_time": "20131223 10:17:49"
+      },
+      {
+        "id": "21",
+        "name": "abc",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "120",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131220 11:19:57",
+        "end_time": "20131220 11:19:57"
+      },
+      {
+        "id": "32",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:25:49",
+        "end_time": "20131223 10:25:49"
+      },
+      {
+        "id": "31",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 10:20:32",
+        "end_time": "20131223 10:20:32"
+      },
+      {
+        "id": "25",
+        "name": "abc",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "81",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131220 13:35:49",
+        "end_time": "20131220 13:35:49"
+      },
+      {
+        "id": "39",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:10:54",
+        "end_time": "20131223 14:10:54"
+      },
+      {
+        "id": "40",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:11:27",
+        "end_time": "20131223 14:11:27"
+      },
+      {
+        "id": "41",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:11:28",
+        "end_time": "20131223 14:11:28"
+      },
+      {
+        "id": "42",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:12:50",
+        "end_time": "20131223 14:12:50"
+      },
+      {
+        "id": "43",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:13:50",
+        "end_time": "20131223 14:13:50"
+      },
+      {
+        "id": "44",
+        "name": "testaa",
+        "region_id": "1",
+        "user_id": "1",
+        "bind_width": "80",
+        "out_ip": "10.20.20.65",
+        "state": "1",
+        "create_time": "20131223 14:14:27",
+        "end_time": "20131223 14:14:27"
+      }
+    ]
+  }
+}

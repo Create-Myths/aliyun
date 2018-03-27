@@ -1,0 +1,87 @@
+<form name="form" class="cloud-form" novalidate>
+    <div class="container-fluid">
+        <!--说明-->
+        <div class="clearfix cloud-block1 personal-block1">
+            <h1>
+                用户资料
+            </h1>
+            <hr>
+            <div>
+                <img src="img/photo.png">
+                <span class="title">{{newUser.email}}</span>
+            </div>
+        </div>
+        <div class="container-fluid personal-block2">
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>姓名：</div>
+                <div class="span10">
+                    <input type="text" name="username" ng-model="newUser.username"  disabled >
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>邮件：</div>
+                <div class="span10">
+                    <div class="form-group"
+                         ng-class="{'has-error': form.email.$invalid}">
+                        <input type="email" ng-required="true"  ng-model="newUser.email" name="email">
+                        <span class="help-block"
+                              ng-show="form.email.$error.required"><i>请输入邮件地址</i></span>
+                        <span class="help-block"
+                              ng-show="form.email.$error.email"><i>请输入正确的邮件地址</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>电话：</div>
+                <div class="span10">
+                    <div class="form-group"
+                         ng-class="{'has-error': form.phone.$invalid}">
+                        <input type="text" ng-required="true" ng-model="newUser.phone" name="phone">
+                        <span class="help-block"
+                              ng-show="form.phone.$error.required"><i>请输入电话</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>手机：</div>
+                <div class="span10">
+                    <div class="form-group"
+                         ng-class="{'has-error': form.tel.$invalid}">
+                        <input type="text" ng-required="true" ng-model="newUser.tel" name="tel">
+                        <span class="help-block"
+                              ng-show="form.tel.$error.required"><i>请输入手机</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>公司：</div>
+                <div class="span10">
+                    <div class="form-group"
+                         ng-class="{'has-error': form.company.$invalid}">
+                        <input type="text" ng-required="true" ng-model="newUser.company" name="company">
+                        <span class="help-block"
+                              ng-show="form.company.$error.required"><i>请输入公司名称</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2"><i class="red">*</i>联系人：</div>
+                <div class="span10">
+                    <div class="form-group"
+                         ng-class="{'has-error': form.contanct.$invalid}">
+                        <input type="text" ng-required="true" ng-model="newUser.contanct" name="contanct">
+                        <span class="help-block"
+                              ng-show="form.contanct.$error.required"><i>请输入联系人</i></span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row-fluid">
+                <div class="span12">
+                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="form.$invalid" style="width: 256px; height: 58px; font-size: 18px;">确认修改</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

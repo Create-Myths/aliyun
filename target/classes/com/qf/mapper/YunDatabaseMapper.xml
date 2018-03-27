@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunDatabaseMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunDatabase">
+    <id column="dbid" jdbcType="BIGINT" property="dbid" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="dbtypeid" jdbcType="BIGINT" property="dbtypeid" />
+    <result column="dbname" jdbcType="VARCHAR" property="dbname" />
+    <result column="dbmem" jdbcType="VARCHAR" property="dbmem" />
+    <result column="dbdisksize" jdbcType="VARCHAR" property="dbdisksize" />
+    <result column="buynum" jdbcType="INTEGER" property="buynum" />
+    <result column="buytype" jdbcType="INTEGER" property="buytype" />
+    <result column="buytime" jdbcType="INTEGER" property="buytime" />
+    <result column="periodtime" jdbcType="TIMESTAMP" property="periodtime" />
+    <result column="dbstatus" jdbcType="SMALLINT" property="dbstatus" />
+    <result column="dbip" jdbcType="VARCHAR" property="dbip" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    dbid, uid, dbtypeid, dbname, dbmem, dbdisksize, buynum, buytype, buytime, periodtime, 
+    dbstatus, dbip, createtime
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunDatabaseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_database
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_database
+    where dbid = #{dbid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_database
+    where dbid = #{dbid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunDatabaseExample">
+    delete from yun_database
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunDatabase">
+    insert into yun_database (dbid, uid, dbtypeid, 
+      dbname, dbmem, dbdisksize, 
+      buynum, buytype, buytime, 
+      periodtime, dbstatus, dbip, 
+      createtime)
+    values (#{dbid,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{dbtypeid,jdbcType=BIGINT}, 
+      #{dbname,jdbcType=VARCHAR}, #{dbmem,jdbcType=VARCHAR}, #{dbdisksize,jdbcType=VARCHAR}, 
+      #{buynum,jdbcType=INTEGER}, #{buytype,jdbcType=INTEGER}, #{buytime,jdbcType=INTEGER}, 
+      #{periodtime,jdbcType=TIMESTAMP}, #{dbstatus,jdbcType=SMALLINT}, #{dbip,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunDatabase">
+    insert into yun_database
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dbid != null">
+        dbid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="dbtypeid != null">
+        dbtypeid,
+      </if>
+      <if test="dbname != null">
+        dbname,
+      </if>
+      <if test="dbmem != null">
+        dbmem,
+      </if>
+      <if test="dbdisksize != null">
+        dbdisksize,
+      </if>
+      <if test="buynum != null">
+        buynum,
+      </if>
+      <if test="buytype != null">
+        buytype,
+      </if>
+      <if test="buytime != null">
+        buytime,
+      </if>
+      <if test="periodtime != null">
+        periodtime,
+      </if>
+      <if test="dbstatus != null">
+        dbstatus,
+      </if>
+      <if test="dbip != null">
+        dbip,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dbid != null">
+        #{dbid,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="dbtypeid != null">
+        #{dbtypeid,jdbcType=BIGINT},
+      </if>
+      <if test="dbname != null">
+        #{dbname,jdbcType=VARCHAR},
+      </if>
+      <if test="dbmem != null">
+        #{dbmem,jdbcType=VARCHAR},
+      </if>
+      <if test="dbdisksize != null">
+        #{dbdisksize,jdbcType=VARCHAR},
+      </if>
+      <if test="buynum != null">
+        #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="periodtime != null">
+        #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dbstatus != null">
+        #{dbstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="dbip != null">
+        #{dbip,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunDatabaseExample" resultType="java.lang.Long">
+    select count(*) from yun_database
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_database
+    <set>
+      <if test="record.dbid != null">
+        dbid = #{record.dbid,jdbcType=BIGINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.dbtypeid != null">
+        dbtypeid = #{record.dbtypeid,jdbcType=BIGINT},
+      </if>
+      <if test="record.dbname != null">
+        dbname = #{record.dbname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dbmem != null">
+        dbmem = #{record.dbmem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dbdisksize != null">
+        dbdisksize = #{record.dbdisksize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buynum != null">
+        buynum = #{record.buynum,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytype != null">
+        buytype = #{record.buytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytime != null">
+        buytime = #{record.buytime,jdbcType=INTEGER},
+      </if>
+      <if test="record.periodtime != null">
+        periodtime = #{record.periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dbstatus != null">
+        dbstatus = #{record.dbstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="record.dbip != null">
+        dbip = #{record.dbip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_database
+    set dbid = #{record.dbid,jdbcType=BIGINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      dbtypeid = #{record.dbtypeid,jdbcType=BIGINT},
+      dbname = #{record.dbname,jdbcType=VARCHAR},
+      dbmem = #{record.dbmem,jdbcType=VARCHAR},
+      dbdisksize = #{record.dbdisksize,jdbcType=VARCHAR},
+      buynum = #{record.buynum,jdbcType=INTEGER},
+      buytype = #{record.buytype,jdbcType=INTEGER},
+      buytime = #{record.buytime,jdbcType=INTEGER},
+      periodtime = #{record.periodtime,jdbcType=TIMESTAMP},
+      dbstatus = #{record.dbstatus,jdbcType=SMALLINT},
+      dbip = #{record.dbip,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunDatabase">
+    update yun_database
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="dbtypeid != null">
+        dbtypeid = #{dbtypeid,jdbcType=BIGINT},
+      </if>
+      <if test="dbname != null">
+        dbname = #{dbname,jdbcType=VARCHAR},
+      </if>
+      <if test="dbmem != null">
+        dbmem = #{dbmem,jdbcType=VARCHAR},
+      </if>
+      <if test="dbdisksize != null">
+        dbdisksize = #{dbdisksize,jdbcType=VARCHAR},
+      </if>
+      <if test="buynum != null">
+        buynum = #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        buytype = #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        buytime = #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="periodtime != null">
+        periodtime = #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dbstatus != null">
+        dbstatus = #{dbstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="dbip != null">
+        dbip = #{dbip,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where dbid = #{dbid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunDatabase">
+    update yun_database
+    set uid = #{uid,jdbcType=BIGINT},
+      dbtypeid = #{dbtypeid,jdbcType=BIGINT},
+      dbname = #{dbname,jdbcType=VARCHAR},
+      dbmem = #{dbmem,jdbcType=VARCHAR},
+      dbdisksize = #{dbdisksize,jdbcType=VARCHAR},
+      buynum = #{buynum,jdbcType=INTEGER},
+      buytype = #{buytype,jdbcType=INTEGER},
+      buytime = #{buytime,jdbcType=INTEGER},
+      periodtime = #{periodtime,jdbcType=TIMESTAMP},
+      dbstatus = #{dbstatus,jdbcType=SMALLINT},
+      dbip = #{dbip,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where dbid = #{dbid,jdbcType=BIGINT}
+  </update>
+</mapper>

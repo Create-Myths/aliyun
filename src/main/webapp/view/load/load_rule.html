@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>负载均衡</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <a class="btn btn-warning" href="#/load">
+                <i class="icon-arrow-left icon-white"></i>&nbsp;返回负载均衡列表
+            </a>
+
+            <button class="btn btn-inverse" ng-click="refresh()"><i class="icon-repeat icon-white"></i></button>
+        </div>
+
+        <div class="pull-right input-append" >
+            <input id="" type="text" ng-model="filterOptions.filterText">
+            <button class="btn" type="button"><i class="icon-search"></i></button>
+        </div>
+
+    </div>
+    <div class="clearfix cloud-blue-border-title text-left">
+        <span class="small normalcolor">当前负载均衡名称：</span>
+        <span class="small">{{balancerName}}</span></div>
+    <!--列表-->
+    <div class="cloud-grid cloud-loadrule-grid" ng-grid="gridOptions">
+    </div>
+</div>

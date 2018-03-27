@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用说明文档-云内存存储</title>
+<meta content="" name="keywords" />
+<meta content="" name="description" />
+<meta name="generator" content=""/>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/help.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.dimensions.js"></script>
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#acc").accordion({ active: 4});
+	});
+	</script>
+</head>
+
+<body>
+
+<div class="main">
+
+<div class="ding ov ">
+		<div class="znav"><a href="http://g.suncloud.cn/" class="ml30">首页</a><a href="http://g.suncloud.cn/host.html">产品＆服务</a><a href="http://g.suncloud.cn/suport.html">技术支持</a><a href="http://g.suncloud.cn/about-company.html">关于我们</a></div>
+        
+        		<ul class="y mr30">
+                	<li class="litel">400-720-0020 </li>
+                    <li class="liQQ">2355819686</li>
+                    <li><a href="#">登陆</a></li>
+                    <li><a href="#">注册</a></li>
+                </ul>
+
+</div>
+
+<div style="padding:20px;">
+
+
+
+<div class="left z">
+	  <h1>产品说明手册</h1>
+        
+        <div class="left_nav">
+                <div id="acc"> <b class="tit"><span>云主机</span></b>
+            <div class="sub">
+                <ul>
+                    <li><a href="help-host.html#create">创建主机</a></li>
+                    <li><a href="help-host.html#option">操作</a></li>
+                    <li><a href="help-host.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <b class="tit current"><span>云硬盘</span></b>
+            <div  class="sub">
+                <ul>
+                    <li><a href="help-disk.html#create">创建云硬盘</a></li>
+                    <li><a href="help-disk.html#option">操作</a></li>
+                    <li><a href="help-disk.html#faq">FAQ</a></li>
+                </ul></div>
+            <b class="tit"><span>云数据库</span></b>
+            <div class="sub">
+                <ul>
+                <li><a href="help-database.html#database">什么是云数据库</a></li>
+                <li><a href="help-database.html#create">创建DB实例</a></li>
+                    <li><a href="help-database.html#option">基本操作</a></li>
+                    <li><a href="help-database.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <b class="tit"><span>云分发CDN</span></b>
+            <div  class="sub">
+                <ul>
+                <li><a href="help-distribute.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <b class="tit selected"><span>云内存存储</span></b>
+            <div  class="sub">
+                <ul>
+                    <li><a href="#memory">什么是云内存存储</a></li>
+                    <li><a href="#create">创建云内存存储</a></li>
+                    <li><a href="#expand">扩容</a></li>
+                    <li><a href="#delete">删除</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <b class="tit"><span>负载均衡</span></b>
+            <div  class="sub">
+                <ul>
+                <li><a href="help-balance.html#create">创建负载均衡</a></li>
+                    <li><a href="help-balance.html#config">修改负载均衡配置</a></li>
+                    <li><a href="help-balance.html#delete">删除负载均衡</a></li>                    
+                    <li><a href="help-balance.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <b class="tit"><span>云防护</span></b>
+            <div  class="sub">
+                <ul>
+                <li><a href="help-defend.html#defend">什么是云防护</a></li>
+                    <li><a href="help-defend.html#config">修改负载均衡配置</a></li>
+                    <li><a href="help-defend.html#delete">删除负载均衡</a></li>                    
+                    <li><a href="help-defend.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            
+          </div>
+        </div>
+        
+</div>
+<div class="right">
+		<div class="h70 ov">
+        	<div class="search"><form action=""><input type="text" class="txt z" value="输入要搜索的问题..." onfocus="if(this.value=='输入要搜索的问题...'){this.value='';}" onblur="if(this.value==''){this.value='输入要搜索的问题...';}" /><input type="submit" class="sub z" value=" " /></form></div>
+        </div>
+        <div class="cont">
+        		<h2>云内存存储</h2>
+                
+<h3><a name="memory">什么是云内存存储？</a></h3>
+<p><b>云内存存储是一种支持数据持久化的内存存储服务，使用Memcache协议进行访问，具备高性能和高可用的特点，使用户无需自行搭建及管理memcache服务，减少研发和运维成本。</b><br />
+
+性能出色——支持高并发，具有高性能读写的显著特点。<br />
+快速创建——只需根据业务需求，选择所需内存容量，一键创建，立即使用。<br />
+服务高可用——支持双机热备，故障自动切换，不受单点故障的影响。<br />
+数据可靠——所有的内存数据均持久化到磁盘，不会因服务故障重启而造成数据丢失，避免数据需要重新预热。<br />
+兼容性强——无缝兼容Memcache协议，原有业务可以直接迁移，无需任何修改。<br />
+在线扩容——根据实际负载以及内存空间使用情况，可以非常方便地进行在线升级，从而获取更高存储空间与性能，且升级期间，读写服务不会中断。</p>
+<h3><a name="create">创建内存存储空间</a></h3>
+                <p><b>&middot;&nbsp;用户登录控制台后，可在控制台内的存存储空间中，进行如下操作步骤：</b></p>
+                <p><b>1、点击管理页面中的“创建内存空间”按钮：</b></p>
+                <div class="mgimg mb13 ov"><img src="images/help/05-01.gif"  /></div>
+    <p><b>&middot;&nbsp;2、在弹出的申请页面中，可以输入空间的名称、空间的存储容量大小、是否需要热备、购买数量、计费方式等，并根据您的选择统计费用，页面右侧会显示您的账号余额以及当前所选配置，点击完成创建，将为您生成对应要求的内存存储空间。</B></P>
+                <div class="mgimg mb13 ov"><img src="images/help/05-02.gif" width="700" /></div>
+                
+                <h3><a name="expand">扩容</a></h3>
+                <p><b>对于已创建成功的内存存储空间，如果其容量已不能满足现有业务的需要，可以对其进行扩容操作。选定需要扩容的空间后，点击存储空间列表上方的“扩容”按钮，将会弹出扩容页面。</b></p>
+				<div class="mgimg mb13 ov"><img src="images/help/05-03.gif"  /></div>
+                
+                <h3><a name="delete">删除</a></h3>
+                <p><b>您也可以删除不需要的内存存储空间，删除时，只需在选定目标内存存储空间后，点击存储空间列表上方的删除按钮。</b></p>
+				<div class="mgimg mb13 ov"><img src="images/help/05-04.gif"  /></div>
+                
+                <div class="line"></div>
+                <h3><a name="faq">FAQ</a></h3>
+                <p><b>云内存存储的安全性怎么样？</b></p>
+                <p><strong>&middot;&nbsp;访问安全性</strong><br />
+
+UMem实例是“仅内网访问且按账户隔离”的，因此仅有同一账户的云主机能够对UMem实例进行访问。<br />
+
+<strong>&middot;&nbsp;数据安全性</strong><br />
+
+所有的内存数据均持久化到磁盘，不会因服务故障重启而造成数据丢失，避免数据需要重新预热。</p>
+				<br />
+				<p><b>云内存存储支持哪些协议？是否为原生协议？</b></p>
+                <p><strong>&middot;&nbsp;</strong>目前，UMem仅支持了原生Memcache协议，后续会考虑支持更多的协议种类。<br />
+<strong>&middot;&nbsp;</strong>由于支持原生Memcache协议，所以现有使用Memcache的服务如果需要迁移至UMem，可以不做任何修改，直接迁移。</p>
+				<br />
+                <p><b>如何使云内存存储提供的多个ip？</b></p>
+                <p>每个实例都会提供两个IP进行访问。这两个IP都可以对UMem进行访问，分布在不同的接入服务上，其作用在于，当其中一个IP无法正常访问时，仍有另一个IP可用，不会完全中止服务。因此，应用程序可以增加一个容灾切换的逻辑处理：将访问的IP列表设置好，默认访问其中的一个IP，当该IP无法访问时，自动切换到另一个IP继续业务</p>
+                <p><b>云内存存储如何确保存储服务的高可用？</b></p>
+                <p>在创建UMem内存存储空间时，可以选择“有热备”的类型，该类型的存储空间将采用双机热备的方式来确保可用性，即有主从两个存储节点，并且实时同步保证数据的一致性，如果主节点发生宕机，系统会自动切换到从节点上，继续提供读写服务。</p>
+                <p><b>如果存储空间容量不足了怎么办？</b></p>
+                <p>如果存储空间容量不足，可以对其进行扩容，并且该扩容操作是支持在线方式的，一键操作即可完成，扩容期间不会中断业务，读写操作仍然可以正常进行。</p>
+      </div>
+</div>
+
+
+</div>
+</div><!--mainEND-->
+
+
+
+
+<div id="foot" class="ov">
+	<div class="w1000">
+		<div class="ft-lg z"><img src="images/ft-lg.gif" /></div>
+        <div class="y">
+                <ul class="ulprd" style="width:210px;">
+                        <li class="tit" style="width:120px;padding-right:80px;"><a href="#">产品＆服务</a></li>
+                        <li><a href="http://g.suncloud.cn/host.html">云主机</a></li>
+                        <li><a href="http://g.suncloud.cn/balance.html">负载均衡</a></li>
+                        <li><a href="http://g.suncloud.cn/disk.html">云硬盘</a></li>
+                        <li><a href="http://g.suncloud.cn/defend.html">云防护</a></li>
+                        <li><a href="http://g.suncloud.cn/memory.html">云内存存储</a></li>
+                        <li><a href="http://g.suncloud.cn/distribute.html">云分发CDN</a></li>
+                        <li><a href="http://g.suncloud.cn/database.html">云数据库</a></li>
+                </ul>
+                <ul>
+                        <li class="tit"><a href="http://g.suncloud.cn/suport.html">技术支持</a></li>
+                        <li><a href="http://www.suncloud.cn/">阳光云suncloud</a></li>
+                        <li><a href="http://www.sundns.com/">阳光互联</a></li>
+                </ul>
+                <ul>
+                        <li class="tit"><a href="http://g.suncloud.cn/about-contact.html">联系我们</a></li>
+                        <li><a href="http://www.suncloud.cn/">阳光云suncloud</a></li>
+                        <li><a href="http://www.sundns.com/">阳光互联</a></li>
+                </ul>
+                <div class="cl"></div>
+        		<p>上海有孚计算机网络有限公司    Copyright ©2013 上海有孚计算机网络有限公司</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunDiskMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunDisk">
+    <id column="did" jdbcType="BIGINT" property="did" />
+    <result column="hid" jdbcType="BIGINT" property="hid" />
+    <result column="diskname" jdbcType="VARCHAR" property="diskname" />
+    <result column="diskcapacity" jdbcType="VARCHAR" property="diskcapacity" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    did, hid, diskname, diskcapacity, createtime
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunDiskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_disk
+    where did = #{did,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_disk
+    where did = #{did,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunDiskExample">
+    delete from yun_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunDisk">
+    insert into yun_disk (did, hid, diskname, 
+      diskcapacity, createtime)
+    values (#{did,jdbcType=BIGINT}, #{hid,jdbcType=BIGINT}, #{diskname,jdbcType=VARCHAR}, 
+      #{diskcapacity,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunDisk">
+    insert into yun_disk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        did,
+      </if>
+      <if test="hid != null">
+        hid,
+      </if>
+      <if test="diskname != null">
+        diskname,
+      </if>
+      <if test="diskcapacity != null">
+        diskcapacity,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did,jdbcType=BIGINT},
+      </if>
+      <if test="hid != null">
+        #{hid,jdbcType=BIGINT},
+      </if>
+      <if test="diskname != null">
+        #{diskname,jdbcType=VARCHAR},
+      </if>
+      <if test="diskcapacity != null">
+        #{diskcapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunDiskExample" resultType="java.lang.Long">
+    select count(*) from yun_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_disk
+    <set>
+      <if test="record.did != null">
+        did = #{record.did,jdbcType=BIGINT},
+      </if>
+      <if test="record.hid != null">
+        hid = #{record.hid,jdbcType=BIGINT},
+      </if>
+      <if test="record.diskname != null">
+        diskname = #{record.diskname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diskcapacity != null">
+        diskcapacity = #{record.diskcapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_disk
+    set did = #{record.did,jdbcType=BIGINT},
+      hid = #{record.hid,jdbcType=BIGINT},
+      diskname = #{record.diskname,jdbcType=VARCHAR},
+      diskcapacity = #{record.diskcapacity,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunDisk">
+    update yun_disk
+    <set>
+
+      hid = #{hid,jdbcType=BIGINT},
+
+      <if test="diskname != null">
+        diskname = #{diskname,jdbcType=VARCHAR},
+      </if>
+      <if test="diskcapacity != null">
+        diskcapacity = #{diskcapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where did = #{did,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunDisk">
+    update yun_disk
+    set hid = #{hid,jdbcType=BIGINT},
+      diskname = #{diskname,jdbcType=VARCHAR},
+      diskcapacity = #{diskcapacity,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where did = #{did,jdbcType=BIGINT}
+  </update>
+</mapper>

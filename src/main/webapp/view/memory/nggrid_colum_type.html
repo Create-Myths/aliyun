@@ -1,0 +1,10 @@
+<!--
+<div class="ngCellText">{{row.getProperty(col.field) | memTypeFileter}}</div>-->
+<div class="ngCellText">
+<span ng-if="row.getProperty(col.field) == 1">
+热备
+</span>
+<span ng-if="row.getProperty(col.field) == 0">
+无热备
+</span>
+</div>

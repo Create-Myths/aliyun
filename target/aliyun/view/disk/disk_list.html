@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>云硬盘</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <button class="btn btn-warning" ng-click="create()"><i class="icon-plus icon-white"></i>&nbsp;创建硬盘</button>
+            <button class="btn" ng-click="link()" ng-disabled="!linkBtn"><i class="icon-plus-sign"></i>&nbsp;挂载</button>
+            <button class="btn" ng-click="unlink()" ng-disabled="!unlinkBtn"><i class="icon-minus-sign"></i>&nbsp;卸载</button>
+            <button class="btn" ng-click="deleteitem()" ng-disabled="!deleteBtn"><i class="icon-remove"></i>&nbsp;删除</button>
+            <button class="btn btn-inverse" ng-click="refresh()"><i class="icon-repeat icon-white"></i></button>
+        </div>
+
+        <div class="pull-right input-append" >
+            <input id="" type="text" ng-model="filterOptions.filterText">
+            <button class="btn" type="button"><i class="icon-search"></i></button>
+        </div>
+
+    </div>
+
+    <!--列表-->
+    <div class="cloud-grid cloud-disk-grid" ng-grid="gridOptions">
+    </div>
+</div>

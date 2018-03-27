@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>云内存</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <a class="btn btn-warning" href="#/memory">
+                <i class="icon-arrow-left icon-white"></i>&nbsp;返回云内存列表
+            </a>
+        </div>
+
+        <div class="pull-right input-append">
+            <input id="" type="text">
+            <button class="btn" type="button"><i class="icon-search"></i></button>
+        </div>
+
+    </div>
+
+    <!--列表-->
+    <div class="cloud-grid" ng-grid="gridOptions"></div>
+</div>

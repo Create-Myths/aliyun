@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.YunLoadbalancingMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.YunLoadbalancing">
+    <id column="loadid" jdbcType="BIGINT" property="loadid" />
+    <result column="line" jdbcType="SMALLINT" property="line" />
+    <result column="bandwidth" jdbcType="VARCHAR" property="bandwidth" />
+    <result column="buynum" jdbcType="INTEGER" property="buynum" />
+    <result column="buytype" jdbcType="INTEGER" property="buytype" />
+    <result column="buytime" jdbcType="INTEGER" property="buytime" />
+    <result column="periodtime" jdbcType="TIMESTAMP" property="periodtime" />
+    <result column="loadname" jdbcType="VARCHAR" property="loadname" />
+    <result column="domain" jdbcType="VARCHAR" property="domain" />
+    <result column="monitorport" jdbcType="INTEGER" property="monitorport" />
+    <result column="fowardrule" jdbcType="VARCHAR" property="fowardrule" />
+    <result column="keepsession" jdbcType="SMALLINT" property="keepsession" />
+    <result column="checkhealth" jdbcType="SMALLINT" property="checkhealth" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="pool" jdbcType="VARCHAR" property="pool" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="outip" jdbcType="VARCHAR" property="outip" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    loadid, line, bandwidth, buynum, buytype, buytime, periodtime, loadname, domain, 
+    monitorport, fowardrule, keepsession, checkhealth, uid, pool, createtime, outip
+  </sql>
+  <select id="selectByExample" parameterType="com.qf.pojo.YunLoadbalancingExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yun_loadbalancing
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yun_loadbalancing
+    where loadid = #{loadid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from yun_loadbalancing
+    where loadid = #{loadid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.YunLoadbalancingExample">
+    delete from yun_loadbalancing
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.YunLoadbalancing">
+    insert into yun_loadbalancing (loadid, line, bandwidth, 
+      buynum, buytype, buytime, 
+      periodtime, loadname, domain, 
+      monitorport, fowardrule, keepsession, 
+      checkhealth, uid, pool, 
+      createtime, outip)
+    values (#{loadid,jdbcType=BIGINT}, #{line,jdbcType=SMALLINT}, #{bandwidth,jdbcType=VARCHAR}, 
+      #{buynum,jdbcType=INTEGER}, #{buytype,jdbcType=INTEGER}, #{buytime,jdbcType=INTEGER}, 
+      #{periodtime,jdbcType=TIMESTAMP}, #{loadname,jdbcType=VARCHAR}, #{domain,jdbcType=VARCHAR}, 
+      #{monitorport,jdbcType=INTEGER}, #{fowardrule,jdbcType=VARCHAR}, #{keepsession,jdbcType=SMALLINT}, 
+      #{checkhealth,jdbcType=SMALLINT}, #{uid,jdbcType=BIGINT}, #{pool,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{outip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.YunLoadbalancing">
+    insert into yun_loadbalancing
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loadid != null">
+        loadid,
+      </if>
+      <if test="line != null">
+        line,
+      </if>
+      <if test="bandwidth != null">
+        bandwidth,
+      </if>
+      <if test="buynum != null">
+        buynum,
+      </if>
+      <if test="buytype != null">
+        buytype,
+      </if>
+      <if test="buytime != null">
+        buytime,
+      </if>
+      <if test="periodtime != null">
+        periodtime,
+      </if>
+      <if test="loadname != null">
+        loadname,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+      <if test="monitorport != null">
+        monitorport,
+      </if>
+      <if test="fowardrule != null">
+        fowardrule,
+      </if>
+      <if test="keepsession != null">
+        keepsession,
+      </if>
+      <if test="checkhealth != null">
+        checkhealth,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="pool != null">
+        pool,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="outip != null">
+        outip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loadid != null">
+        #{loadid,jdbcType=BIGINT},
+      </if>
+      <if test="line != null">
+        #{line,jdbcType=SMALLINT},
+      </if>
+      <if test="bandwidth != null">
+        #{bandwidth,jdbcType=VARCHAR},
+      </if>
+      <if test="buynum != null">
+        #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="periodtime != null">
+        #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loadname != null">
+        #{loadname,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorport != null">
+        #{monitorport,jdbcType=INTEGER},
+      </if>
+      <if test="fowardrule != null">
+        #{fowardrule,jdbcType=VARCHAR},
+      </if>
+      <if test="keepsession != null">
+        #{keepsession,jdbcType=SMALLINT},
+      </if>
+      <if test="checkhealth != null">
+        #{checkhealth,jdbcType=SMALLINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="pool != null">
+        #{pool,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outip != null">
+        #{outip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.YunLoadbalancingExample" resultType="java.lang.Long">
+    select count(*) from yun_loadbalancing
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update yun_loadbalancing
+    <set>
+      <if test="record.loadid != null">
+        loadid = #{record.loadid,jdbcType=BIGINT},
+      </if>
+      <if test="record.line != null">
+        line = #{record.line,jdbcType=SMALLINT},
+      </if>
+      <if test="record.bandwidth != null">
+        bandwidth = #{record.bandwidth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buynum != null">
+        buynum = #{record.buynum,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytype != null">
+        buytype = #{record.buytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.buytime != null">
+        buytime = #{record.buytime,jdbcType=INTEGER},
+      </if>
+      <if test="record.periodtime != null">
+        periodtime = #{record.periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loadname != null">
+        loadname = #{record.loadname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.domain != null">
+        domain = #{record.domain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monitorport != null">
+        monitorport = #{record.monitorport,jdbcType=INTEGER},
+      </if>
+      <if test="record.fowardrule != null">
+        fowardrule = #{record.fowardrule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keepsession != null">
+        keepsession = #{record.keepsession,jdbcType=SMALLINT},
+      </if>
+      <if test="record.checkhealth != null">
+        checkhealth = #{record.checkhealth,jdbcType=SMALLINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.pool != null">
+        pool = #{record.pool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.outip != null">
+        outip = #{record.outip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update yun_loadbalancing
+    set loadid = #{record.loadid,jdbcType=BIGINT},
+      line = #{record.line,jdbcType=SMALLINT},
+      bandwidth = #{record.bandwidth,jdbcType=VARCHAR},
+      buynum = #{record.buynum,jdbcType=INTEGER},
+      buytype = #{record.buytype,jdbcType=INTEGER},
+      buytime = #{record.buytime,jdbcType=INTEGER},
+      periodtime = #{record.periodtime,jdbcType=TIMESTAMP},
+      loadname = #{record.loadname,jdbcType=VARCHAR},
+      domain = #{record.domain,jdbcType=VARCHAR},
+      monitorport = #{record.monitorport,jdbcType=INTEGER},
+      fowardrule = #{record.fowardrule,jdbcType=VARCHAR},
+      keepsession = #{record.keepsession,jdbcType=SMALLINT},
+      checkhealth = #{record.checkhealth,jdbcType=SMALLINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      pool = #{record.pool,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      outip = #{record.outip,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.YunLoadbalancing">
+    update yun_loadbalancing
+    <set>
+      <if test="line != null">
+        line = #{line,jdbcType=SMALLINT},
+      </if>
+      <if test="bandwidth != null">
+        bandwidth = #{bandwidth,jdbcType=VARCHAR},
+      </if>
+      <if test="buynum != null">
+        buynum = #{buynum,jdbcType=INTEGER},
+      </if>
+      <if test="buytype != null">
+        buytype = #{buytype,jdbcType=INTEGER},
+      </if>
+      <if test="buytime != null">
+        buytime = #{buytime,jdbcType=INTEGER},
+      </if>
+      <if test="periodtime != null">
+        periodtime = #{periodtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loadname != null">
+        loadname = #{loadname,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorport != null">
+        monitorport = #{monitorport,jdbcType=INTEGER},
+      </if>
+      <if test="fowardrule != null">
+        fowardrule = #{fowardrule,jdbcType=VARCHAR},
+      </if>
+      <if test="keepsession != null">
+        keepsession = #{keepsession,jdbcType=SMALLINT},
+      </if>
+      <if test="checkhealth != null">
+        checkhealth = #{checkhealth,jdbcType=SMALLINT},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="pool != null">
+        pool = #{pool,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outip != null">
+        outip = #{outip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where loadid = #{loadid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.YunLoadbalancing">
+    update yun_loadbalancing
+    set line = #{line,jdbcType=SMALLINT},
+      bandwidth = #{bandwidth,jdbcType=VARCHAR},
+      buynum = #{buynum,jdbcType=INTEGER},
+      buytype = #{buytype,jdbcType=INTEGER},
+      buytime = #{buytime,jdbcType=INTEGER},
+      periodtime = #{periodtime,jdbcType=TIMESTAMP},
+      loadname = #{loadname,jdbcType=VARCHAR},
+      domain = #{domain,jdbcType=VARCHAR},
+      monitorport = #{monitorport,jdbcType=INTEGER},
+      fowardrule = #{fowardrule,jdbcType=VARCHAR},
+      keepsession = #{keepsession,jdbcType=SMALLINT},
+      checkhealth = #{checkhealth,jdbcType=SMALLINT},
+      uid = #{uid,jdbcType=BIGINT},
+      pool = #{pool,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      outip = #{outip,jdbcType=VARCHAR}
+    where loadid = #{loadid,jdbcType=BIGINT}
+  </update>
+</mapper>

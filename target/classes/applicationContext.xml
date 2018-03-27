@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context.xsd   
+        http://www.springframework.org/schema/mvc   
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 1，配置DBCP的数据源 -->
+    <!-- 可以把数据库的四大属性配置在属性文件中,同时需要加载属性文件 -->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!-- 1,配置德鲁伊连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="url" value="${myurl}"></property>
+        <property name="driverClassName" value="${mydriver}"></property>
+        <property name="username" value="${myname}"></property>
+        <property name="password" value="${mypass}"></property>
+        <property name="maxActive" value="10"></property>
+        <property name="minIdle" value="5"></property>
+        <!-- 最大等待时间，超时抛链接超时 -->
+        <property name="maxWait" value="1000"></property>
+    </bean>
+
+    <!-- 2,创建SqlSessionFactory ，由Spring提供 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 思考mybatis的核心配置部分:数据源，注册实体 -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- 注册实体，模糊匹配多个mapper映射文件-->
+        <property name="mapperLocations" value="classpath:com/qf/mapper/*Mapper.xml"></property>
+        <!-- 配置分页插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <props><!-- 指定数据库的方言 -->
+                            <prop key="helperDialect">mysql</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
+        <!-- 加载mybatis核心配置文件中的插件配置 -->
+        <!-- <property name="configLocation" value="classpath:mybatis-config.xml"></property>-->
+    </bean>
+
+    <!-- 3,没有DAO的具体实现类，怎么办？DAO接口扫描动态生成DAO接口的代理实现类
+    不需要加id属性，这里扫描的是所有的DAO接口。
+    如何把DAO注入给服务层呢？使用注解方式：注入Mapper代理接口。使用自动装配就可以了。
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--必须定位到具体的dao接口包 -->
+        <property name="basePackage" value="com.qf.dao"></property>
+    </bean>
+
+    <!-- 4,创建服务层对象使用注解方式，注解注入DAO 目标类对象-->
+    <!-- 开启注解扫描服务层的注解 -->
+    <context:component-scan base-package="com.qf.service"></context:component-scan>
+    <!-- 5,创建事务管理通知类对象-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 6,定义事务通知切面，让事务应用到具体的方法 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--希望哪些方法需要应用到事务 -->
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="find*" read-only="true"></tx:method>
+            <tx:method name="get*" read-only="true"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+    <!-- 7,AOP编程：让切入点和通知关联形成切面 -->
+    <aop:config>
+        <aop:pointcut id="myPoint" expression="execution(* com.qf.service.*.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="myPoint"></aop:advisor>
+    </aop:config>
+
+    <!-- 整合表现层配置 -->
+    <!-- 8,注解的处理器映射器和适配器 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!-- 9视图解析器:逻辑视图-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀 -->
+        <!--<property name="prefix" value="/"></property>
+        &lt;!&ndash; 后缀 &ndash;&gt;
+        <property name="suffix" value=".jsp"></property>-->
+    </bean>
+    <!-- 10扫描 Action-->
+    <context:component-scan base-package="com.qf.action"></context:component-scan>
+
+    <!-- 配置文件类型解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
+
+    <!--<import resource="applicationContext-activiti.xml"></import>-->
+
+</beans>

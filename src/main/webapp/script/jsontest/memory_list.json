@@ -1,0 +1,195 @@
+{
+    "result":"true",
+    "errortype":"0",
+    "errormsg":"",
+    "param":{
+        "memlist":[
+            {
+                "id":"58",
+                "space_name":"test",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"570",
+                "ip":"10.20.20.65",
+                "port":"11236",
+                "create_time":"2013-12-21 05:06:16",
+                "left_time":"29\u5929 22\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"59",
+                "space_name":"ahren",
+                "treaty":"memcache",
+                "type":"0",
+                "size":"270",
+                "ip":"10.20.20.65",
+                "port":"11237",
+                "create_time":"2013-12-22 08:50:11",
+                "left_time":"31\u5929 02\u5c0f\u65f6 0\u5206\u949f"
+            },{
+                "id":"60",
+                "space_name":"memory11",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"1060",
+                "ip":"10.20.20.65",
+                "port":"11238",
+                "create_time":"2013-12-22 11:46:03",
+                "left_time":"31\u5929 05\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"72",
+                "space_name":"test_naicun",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"73",
+                "space_name":"test_naicun",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"74",
+                "space_name":"xxxxx",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"75",
+                "space_name":"yyyyy",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"76",
+                "space_name":"zzzzz",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"77",
+                "space_name":"xxxxx",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"78",
+                "space_name":"yyyyy",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"79",
+                "space_name":"zzzzz",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"80",
+                "space_name":"xxxxx",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"81",
+                "space_name":"yyyyy",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"82",
+                "space_name":"zzzzz",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"83",
+                "space_name":"xxxxx",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"84",
+                "space_name":"yyyyy",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            },
+            {
+                "id":"85",
+                "space_name":"zzzzz",
+                "treaty":"memcache",
+                "type":"1",
+                "size":"10",
+                "ip":"10.20.20.65",
+                "port":"11250",
+                "create_time":"2013-12-23 02:20:43",
+                "left_time":"31\u5929 19\u5c0f\u65f6 0\u5206\u949f"
+            }
+        ]
+    }
+}

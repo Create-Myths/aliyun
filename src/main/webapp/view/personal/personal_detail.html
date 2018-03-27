@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1 personal-block1">
+        <h1>
+            用户资料
+            <span class="pull-right">
+                <img tooltip="修改密码" tooltip-placement="bottom" src="img/cloud-icon-personal-key.png" ng-click="changePassword()" style="cursor: pointer;">
+                <a href="#/personal_edit" >
+                    <img tooltip="修改资料" tooltip-placement="bottom" src="img/cloud-icon-personal-edit.png" style="cursor: pointer;">
+                </a>
+            </span>
+        </h1>
+        <hr>
+        <div>
+            <img src="img/photo.png">
+            <span class="title">{{user.username}}</span>
+        </div>
+    </div>
+    <div class="container-fluid personal-block2">
+        <div class="row-fluid">
+            <div class="span2"><i class="red">*</i>姓名：</div>
+            <div class="span10">
+                {{user.username}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><i class="blank">&nbsp;</i>邮件：</div>
+            <div class="span10">
+                {{user.email}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><i class="blank">&nbsp;</i>电话：</div>
+            <div class="span10">
+                {{user.phone}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><i class="blank">&nbsp;</i>手机：</div>
+            <div class="span10">
+                {{user.tel}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><i class="blank">&nbsp;</i>公司：</div>
+            <div class="span10">
+                {{user.company}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><i class="blank">&nbsp;</i>联系人：</div>
+            <div class="span10">
+                {{user.contanct}}
+            </div>
+        </div>
+    </div>
+
+</div>

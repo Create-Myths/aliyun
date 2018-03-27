@@ -1,0 +1,175 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body,*,html,div,h1,h2,h3,p,ul,li,span,form,input,td,th{ margin:0; padding:0; font-size:12px;}
+body{color:#fff;overflow:hidden;}
+ul{ float:right; line-height:28px;margin-right:15px;}
+li{ float:left;margin-left:20px;}
+li.litel{ background:url(img/icon.png) 0 8px no-repeat;padding-left:15px;padding:0 0px 0 15px;}
+li.liQQ{ background:url(img/icon.png) 0 -17px no-repeat;padding-left:15px;padding:0 0px 0 15px;}
+
+a{ line-height:28px; padding:0 0px; text-decoration:none;}
+a.a1{ color:#8DCCE7;}
+a.a1:hover{color:#6FF;  }
+a.a2{color:#CCC;}
+a.a2:hover{color:#eaeaea;}
+a.a3{color:#6FF;}
+a.a3:hover{  color:#8DCCE7; }
+a.a4{color:#CCC;}
+a.a4:hover{color:#eaeaea;}
+-->
+</style>
+<script type="text/javascript" language="javascript">
+	function initLoged()
+	{
+		//接收表单的URL地址
+		var url = "http://my.g.suncloud.cn/api/index.php?r=user/getIsLogin";
+
+		//需要POST的值，把每个变量都通过&来联接
+		var postStr   = "";
+		//实例化Ajax
+        var ajax = false;
+        //开始初始化XMLHttpRequest对象
+        if(window.XMLHttpRequest) { //Mozilla 浏览器
+                 ajax = new XMLHttpRequest();
+                 if (ajax.overrideMimeType) {//设置MiME类别
+                         ajax.overrideMimeType("text/xml");
+                 }
+         }
+         else if (window.ActiveXObject) { // IE浏览器
+                 try {
+                         ajax = new ActiveXObject("Msxml2.XMLHTTP");
+                 } catch (e) {
+                         try {
+                                 ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                         } catch (e) {}
+                 }
+         }
+         if (!ajax) { // 异常，创建对象实例失败
+                 window.alert("不能创建XMLHttpRequest对象实例.");
+                 return false;
+         }
+		//通过Post方式打开连接
+		ajax.open("POST", url, true);
+
+		//定义传输的文件HTTP头信息
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+		//发送POST数据
+		ajax.send(postStr);
+
+		//获取执行状态
+		ajax.onreadystatechange = function() {
+		   //如果执行状态成功，那么就把返回信息写到指定的层里
+		   if (ajax.readyState == 4 && ajax.status == 200) {
+		   	/*{  
+			·       result: "true", 
+			·       errortype: "0", 
+			·       errormsg: "", 
+			·       param:  {   
+				    username: "maben" 
+				}*/
+				//alert(ajax.responseText);
+				var r="("+ajax.responseText+")";
+				//var r='({"result":"true","errortype":"0", "errormsg": "","param": {"username": "有浮测试帐号20131223"}})';
+				data = eval(r);
+
+			    var str_result= data.result;//登陆状态true成功false失败
+			    if(str_result=="true")
+			    {
+			    	var username=data.param.username;
+			    	var str_content="<ul class=\"y\">";
+                  	str_content+="<li class=\"litel\">400-720-0020 </li>";
+                    str_content+="<li class=\"liQQ\"><a target=\"_blank\" style=\" color:white\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2355819686&site=qq&menu=yes\">2355819686</a></li>";
+                    str_content+="<li>欢迎 <a href=\"javascript:void(0);\" class=\"a3\">";
+                    str_content+=username;
+                    str_content+="</a> | <a href=\"javascript:void(0);\" class=\"a4\" onClick=\"redirect_page('http://my.g.suncloud.cn/#/home')\">进入控制台</a> | <a href=\"javascript:void(0);\" class=\"a4\" onClick=\"user_logout()\">退出</a> </li>";
+                    str_content+="</ul>";
+			    	document.getElementById("user_content").innerHTML=str_content;
+			    }
+		   }
+		}
+	}
+	function redirect_page(url)
+	{
+		window.parent.location.href = url;
+		// window.parent.window.location.href=url;
+	}
+	function user_logout()
+	{
+		//接收表单的URL地址
+		var url = "http://my.g.suncloud.cn/api/index.php?r=user/logout";
+
+		//需要POST的值，把每个变量都通过&来联接
+		var postStr   = "";
+		//实例化Ajax
+        var ajax = false;
+        //开始初始化XMLHttpRequest对象
+        if(window.XMLHttpRequest) { //Mozilla 浏览器
+                 ajax = new XMLHttpRequest();
+                 if (ajax.overrideMimeType) {//设置MiME类别
+                         ajax.overrideMimeType("text/xml");
+                 }
+         }
+         else if (window.ActiveXObject) { // IE浏览器
+                 try {
+                         ajax = new ActiveXObject("Msxml2.XMLHTTP");
+                 } catch (e) {
+                         try {
+                                 ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                         } catch (e) {}
+                 }
+         }
+         if (!ajax) { // 异常，创建对象实例失败
+                 window.alert("不能创建XMLHttpRequest对象实例.");
+                 return false;
+         }
+		//通过Post方式打开连接
+		ajax.open("POST", url, true);
+
+		//定义传输的文件HTTP头信息
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+		//发送POST数据
+		ajax.send(postStr);
+
+		//获取执行状态
+		ajax.onreadystatechange = function() {
+		   //如果执行状态成功，那么就把返回信息写到指定的层里
+		   if (ajax.readyState == 4 && ajax.status == 200) {
+		   	/*{  
+			·       result: "true", 
+			·       errortype: "0", 
+			·       errormsg: "", 
+			·       param:  {   
+				    username: "maben" 
+				}*/
+				//alert(ajax.responseText);
+				var r="("+ajax.responseText+")";
+				//var r='({"result":"true","errortype":"0", "errormsg": "","param": {"username": "有浮测试帐号20131223"}})';
+				data = eval(r);
+
+			    var str_result= data.result;//登陆状态true成功false失败
+			    if(str_result=="true")
+			    {
+			    	redirect_page("http://my.g.suncloud.cn/user/login.html");//退出成功跳转到登录
+			    }
+		   }
+		}
+	}
+</script>
+</head>
+<body onLoad="initLoged()" STYLE="background-color: transparent">
+	<div id="user_content">
+		<ul class="y">
+		    <li class="litel">400-720-0020 </li>
+		    <li class="liQQ"><a target="_blank" style=" color:white" href="http://wpa.qq.com/msgrd?v=3&uin=2355819686&site=qq&menu=yes">2355819686</a></li>
+		    <li><a href="javascript:void(0);" onClick="redirect_page('http://my.g.suncloud.cn/user/login.html')" class="a1">登陆</a></li>
+			<li><a href="javascript:void(0);" onClick="redirect_page('http://my.g.suncloud.cn/user/register.html')" class="a2">注册</a></li>
+		</ul>
+	</div>
+</body>
+</html>

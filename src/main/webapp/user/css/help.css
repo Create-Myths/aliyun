@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mgimg{ margin-top: 20px; }
+.line{ border-bottom:1px solid #ddd; height:20px; margin:10px 0 20px;}
+
+.left{ position:relative; width:250px; float:left; background:#000; background-color:#fff; border:1px solid #bfbfbf; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -webkit-background-clip:padding-box; -moz-background-clip:padding-box; background-clip:padding-box; display:block; height: 560px; }
+.left h1{ background:#08c; height:36px; font-size:20px; padding:7px 20px; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -webkit-background-clip:padding-box; -moz-background-clip:padding-box; background-clip:padding-box; display:block; color:#fff; text-shadow: 1px 1px 0 #23507c; }
+.right{ margin-left:270px; font-size:14px; color:#333; padding-bottom: 60px; }
+
+
+.left_nav{ position:absolute; top:40px; width:250px; background:#fff; overflow:hidden; }
+#acc{}
+.left_nav .tit{ height:40px; background:url(../images/left-nav-tit.png) 222px center no-repeat #f8f8f8; line-height:40px; clear:both;display:block; width:100%;  font-size:16px; border-bottom:1px solid #ddd; cursor:pointer; color:#08c}
+.left_nav .tit span{ padding-left:18px; background:url(../images/icon04.gif) no-repeat left 3px;}
+.left_nav .sub{}
+.left_nav .sub ul{padding:6px 0;}
+.left_nav .sub li{ height:30px; line-height:30px; font-size:14px;overflow:hidden;}
+.left_nav .sub a{ display:block; color:#000; padding-left:40px;border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.left_nav .sub li.on a,.left_nav .sub li.on a:hover{ background:#ededed; border-top:1px solid #dedede; border-bottom:1px solid #dedede; font-weight:bold;}
+.left_nav .sub li a:hover{ background:#f8f8f8}
+
+
+.right .h70{ border-bottom:2px solid #c9c9c9;}
+.right .search{ background:url(../images/help_search_bg.gif) no-repeat;width:531px; height:49px;margin-top:5px;}
+.right .search .txt{ height:28px; line-height:28px; color:#666; border:none; width:407px;margin:10px 0 0 15px; margin-right:10px;}
+.right .search .sub{ width:93px; height:39px; background: none; margin-top: 5px; cursor:pointer; }
+.right .cont h2{ height:70px; font-size:30px; line-height:70px; border-bottom:1px solid #ddd; color: #333; }
+.right .cont h3{ height:60px; color:#666; font-size:20px; line-height:65px; font-weight: bold; }
+.right .cont p{ line-height:30px; }
+.right .cont p b{ font-size:16px;}
+.right .cont img{ }

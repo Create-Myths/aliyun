@@ -1,0 +1,17 @@
+<style>
+   .cloud_disabled_row{
+       color: #CCCCCC;
+   }
+  /* .cloud_disabled_row .ngSelectionCheckbox{
+       display:none;
+
+   }*/
+</style>
+<div style="height: 100%" ng-class="{cloud_disabled_row: row.getProperty('name') == '@'}">
+<div ng-style="{ 'cursor': row.cursor }" ng-repeat="col in renderedColumns"
+     ng-class="col.colIndex()" class="ngCell {{col.cellClass}}">
+    <div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;
+    </div>
+    <div ng-cell></div>
+</div>
+</div>

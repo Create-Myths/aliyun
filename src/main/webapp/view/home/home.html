@@ -1,0 +1,172 @@
+<h1 class="cloud-page-title">控制台首页</h1>
+<hr class="cloud-page-title-line">
+<!--第一行-->
+<div class="row-fluid">
+    <!--我的资源-->
+    <div class="span8 cloud-main-resource">
+        <div class="panel panel-default">
+            <div class="panel-heading">我的资源</div>
+            <div class="panel-body text-center">
+                <!--<h2>您还没有创建任何主机,点击下方按钮创建</h2>-->
+                <ul class="thumbnails cloud-rs">
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs01.png" alt="">
+                            <p>云主机：<a href="#/host">{{totallist.vmcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs02.png" alt="">
+                            <p>云硬盘：<a href="#/disk">{{totallist.diskcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs03.png" alt="">
+                            <p>云数据库：<a href="#/db">{{totallist.dbcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs04.png" alt="">
+                            <p>负载均衡：<a href="#/load">{{totallist.lbcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs05.png" alt="">
+                            <p>云内存存储：<a href="#/memory">{{totallist.memcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs06.png" alt="">
+                            <p>云防护：<a href="#/protection">{{totallist.wallcount}}</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="img/rs07.png" alt="">
+                            <p>DNS：<a href="#/dns_domain">{{totallist.domaincount}}</a></p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn-group cloud-main-btn-create-host">
+                    <button class="btn btn-success"  ng-click="createHost()">
+                        <span class="icon-plus icon-white"></span>
+                    </button>
+                    <button class="btn btn-success" ng-click="createHost()">创建新主机</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--个人信息
+    <div class="span4 cloud-main-person">
+        <div class="panel panel-default">
+            <div class="panel-heading">个人信息</div>
+            <div class="panel-body">
+                <div class="media">
+                    <div class="pull-left text-center">
+                        <img class="media-object" src="img/main-cloud.gif">
+                        <a href="#/personal_edit">修改信息</a>
+                    </div>
+
+                    <div class="media-body">
+                        <div class="media">
+                            <a style="text-decoration: none;">{{user.email}}</a><br>
+                            上次登录：<span>{{user.last_login_time}}</span><br>
+                            现金账余额：<span class="cloud-main-person-currency">0.00</span> 元
+                        </div>
+                        <div class="media">
+                            <button class="btn btn-warning" ng-click="support()">充值</button>
+                            <button class="btn"  ng-click="support()">我的订单</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+</div>
+
+<!--第二行-->
+<div class="panel panel-default cloud-main-product">
+    <div class="panel-heading">所有产品</div>
+    <div class="panel-body">
+        <div class="row-fluid">
+
+            <!--计算和网络-->
+            <div class="span4 media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/icon-main1.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">计算和网络</h4>
+                    <ul class="inline">
+                        <li><a href="#/host">云主机</a></li>
+                        <li><a href="#load">负载均衡</a></li>
+                        <li><a href="#/protection">云防护</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--存储和CDN-->
+            <div class="span8 media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/icon-main2.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">存储和CDN</h4>
+                    <ul class="inline">
+                        <li><a href="#/disk">云硬盘</a></li>
+                        <li><a href="#/db">云数据库</a></li>
+                        <li><a href="#/memory">云内存存储</a></li>
+                        <li><a href="#/cdn">云分发CDN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <!--价格计算器-->
+            <div class="span4 media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/icon-main3.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">价格计算器</h4>
+                    <ul class="inline">
+                        <!--<li><a>云主机</a></li>
+                        <li><a>负载均衡</a></li>
+                        <li><a>云硬盘</a></li>
+                        <li><a>数据库</a></li>
+                        <li><a>云内存</a></li>
+                        <li><a>云分发</a></li>-->
+                        <li><a href="http://g.suncloud.cn/cal-host.html" target="_blank">云主机</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-disk.html" target="_blank">云硬盘</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-balance.html" target="_blank">负载均衡</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-database.html" target="_blank">云数据库</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-memory.html" target="_blank">云内存存储</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-distribute.html" target="_blank">云分发CDN</a></li>
+                        <li><a href="http://g.suncloud.cn/cal-defend.html" target="_blank">云防护</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--第三方服务-->
+            <div class="span8 media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="img/icon-main4.png">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">第三方服务</h4>
+                    <ul class="inline">
+                        <li><a href="#/monitor">监控宝</a></li>
+                        <li><a href="#/dns_domain">DNS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

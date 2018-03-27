@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>云数据库</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <button class="btn btn-warning" ng-click="create()"><i class="icon-plus icon-white"></i>&nbsp;创建DB实例</button>
+
+            <button class="btn" ng-click="deleteitem()" ng-disabled="!deleteBtn"><i class="icon-remove"></i>&nbsp;删除</button>
+            <button class="btn btn-inverse" ng-click="refresh()"><i class="icon-repeat icon-white"></i></button>
+        </div>
+
+            <div class="pull-right input-append" >
+                <input id="" type="text" ng-model="filterOptions.filterText">
+                <button class="btn" type="button"><i class="icon-search"></i></button>
+            </div>
+
+    </div>
+
+    <!--隐藏表单，防止弹窗被浏览器拦截的方案
+    <form  id="loginform" action="http://my.g.suncloud.cn/api/index.php"
+          method="get" target="_blank">
+        <input style="display:none;" name="r" value="db/LoginPhpmyadmin">
+        <input style="display:none;" ng-model="db_id" name="db_id" id="db_id">
+    </form>
+-->
+
+    <!--列表-->
+    <div class="cloud-grid cloud-db-grid" ng-grid="gridOptions">
+    </div>
+</div>

@@ -1,0 +1,984 @@
+@import "panels.css";
+/*html5*/
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+
+body {
+    padding-top: 60px;
+    font-family: "微软雅黑";
+}
+
+.alert{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.modal{
+    position: absolute;
+}
+.modal-body{
+    max-height: none !important; /*弹窗不加滚动条;*/
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*g-grid高度自适应*/
+.ngViewport {
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+/*兼容ui-agularjs*/
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+/*头*/
+.cloud-nav{
+    background-color: #398DE7;
+    background-image: url("../img/hader-line.png");
+    background-repeat: repeat-x;
+}
+
+.cloud-header .cloud-logo{
+    height: 60px;
+    border-right:  1px solid #569EE6;
+}
+.cloud-header .cloud-logo a{
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    font-size: 0;
+    display: inline-block;
+    height: 41px;
+    width: 141px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+/*头-登录信息*/
+.cloud-header .cloud-login{
+    color:#ffffff;
+    height: 60px;
+    line-height: 60px;
+    padding-right: 30px;
+}
+.cloud-header .cloud-login span{
+    color:#ffffff;
+    text-shadow: 0 1px 0 #383838;
+}
+.cloud-header .cloud-login a.username{
+    color:yellow;
+    text-shadow: 0 1px 0 #383838;
+}
+.cloud-header .cloud-login .caret{
+    border-top: 4px solid;
+    margin-top: 30px;
+}
+
+.cloud-header .cloud-login .cloud-logout{
+    color: #ffffff;
+}
+/*页面布局*/
+.container-fluid{
+    padding: 0;
+}
+
+.right-page{
+    padding-right: 30px;
+}
+
+/*导航*/
+.cloud-sidebar-nav {
+    padding: 0;
+}
+/*导航列表*/
+.cloud-nav-list{
+    padding: 0;
+}
+
+.cloud-nav-list > li > a,
+.cloud-nav-list .nav-header {
+    margin: 0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.cloud-nav-list .nav-header {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 3px 15px;
+    padding-left: 55px;
+    font-weight: normal;
+
+    background-color: #383838;
+    background-image: -moz-linear-gradient(top, #3f3f3f, #2f2f2f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3f3f3f), to(#2f2f2f));
+    background-image: -webkit-linear-gradient(top, #3f3f3f, #2f2f2f);
+    background-image: -o-linear-gradient(top, #3f3f3f, #2f2f2f);
+    background-image: linear-gradient(to bottom, #3f3f3f, #2f2f2f);
+    background-repeat: repeat-x;
+}
+
+.cloud-nav-list > li {
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #ffffff;
+    background-color: #fafafa;
+    background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    background-repeat: repeat-x;
+
+}
+.cloud-nav-list > li > a {
+    color: #333333;
+    font-size: 13px;
+    padding-left: 47px;
+    border-left: 8px solid transparent;
+}
+.cloud-nav-list > .active > a,
+.cloud-nav-list > .active > a:hover,
+.cloud-nav-list > .active > a:focus {
+    color: #333333;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+    background-color: #E5E8ED;
+    font-size: 13px;
+    border-left: 8px solid #4182C4;
+}
+
+.cloud-nav-list > li > a > i {
+    float: right;
+    margin-right: -6px;
+    margin-top: 2px;
+    opacity: 0.5;
+    background-position: 0 0;
+    background-image: url("../img/arrow-up.png");
+    width: 13px;
+    height: 13px;
+}
+.cloud-nav-list > .active > a > i {
+    background-image: url("../img/arrow-right.png");
+}
+
+/*导航帮助中心*/
+.cloud-sidebar-nav .cloud-help{
+    line-height: 30px;
+    font-size: 14px;
+    padding: 3px 15px;
+    padding-left: 25px;
+}
+.cloud-sidebar-nav .icon-question{
+    background-image: url("../img/question.png");
+    background-position: 0 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 18px;
+}
+.cloud-sidebar-nav hr{
+    margin: 0 0 20px 0;
+    border: 0;
+    border-top: 1px solid #d2d2d2;
+}
+
+/*搜索框*/
+.cloud-sidebar-nav .cloud-search {
+    /*background-image: url("../img/search-bg.png");
+    background-repeat: no-repeat;*/
+    height: 25px;
+
+    margin: 0 8px;
+    padding: 5px;
+    border: 0;
+    -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius:6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+
+.cloud-sidebar-nav .cloud-search input{
+
+    width: 70%;
+    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.2);
+    -webkit-border-radius:0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+ }
+
+.cloud-sidebar-nav .cloud-search a{
+    border: 0;
+    display: inline-block;
+    background-image: url("../img/search.png");
+    background-repeat: no-repeat;
+    width: 41px;
+    height: 30px;
+    line-height: 30px;
+    background-position: 0 0;
+}
+
+/*售后服务*/
+.cloud-sidebar-nav .icon-sell{
+    background-image: url("../img/sell.png");
+    background-position: 0 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 18px;
+}
+.cloud-sidebar-nav .cloud-help-text{
+    color: #6191d4;
+    margin-left: 25px;
+}
+
+.cloud-sidebar-nav .icon-tel{
+    background-image: url("../img/tel.png");
+    background-position: 0 0;
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 18px;
+}
+
+.cloud-sidebar-nav .icon-email{
+    background-image: url("../img/email.png");
+    background-position: 0 0;
+    display: inline-block;
+    width: 22px;
+    height: 18px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 18px;
+}
+
+/*********************主页****************************/
+/*我的资源*/
+.cloud-main-resource .panel-body{
+    height: 126px;
+}
+.cloud-main-resource h2{
+    font-size: 26px;
+    font-weight: normal;
+    color: #999999;
+    margin: 20px 0;
+}
+.cloud-main-btn-create-host{
+    margin-bottom: 10px;
+}
+.cloud-main-btn-create-host .btn-success {
+    height: 36px;
+}
+.cloud-main-btn-create-host .btn-success:active,
+.cloud-main-btn-create-host .btn-success.active {
+    height: 36px;
+}
+
+.cloud-rs li{margin-bottom: 0;margin-left: 10px;}
+.cloud-rs li .thumbnail{padding: 0 5px;border: 0;}
+.cloud-rs li .thumbnail p{font-size: 12px;border-top: 1px solid #c9c9c9;}
+.cloud-rs li .thumbnail p i{color:#0288dd;font-style: normal;}
+/*个人信息*/
+.cloud-main-person .panel-body{
+    height: 126px;
+}
+.cloud-main-person .media{
+    line-height: 25px;
+}
+.cloud-main-person .btn{
+    height: 24px;
+    padding: 2px 12px;
+    font-size: 12px;
+}
+.cloud-main-person-currency{
+    font-size: 22px;
+    font-weight: bold;
+    color: #FE8900;
+}
+/*所有产品*/
+.cloud-main-product .media-heading{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/*****************************用户资料*****************************/
+.personal-block1{
+    background-color: #FFFFFF;
+    border-left: 1px solid #C1E7F7;
+    border-right: 1px solid #C1E7F7;
+}
+.personal-block1 hr{
+    margin: 0 0 20px 0;
+    border: 0;
+    border-top: 1px solid #d2d2d2;
+}
+.personal-block1 .title{
+    color: #3685d3;
+    font-size: 24px;
+    padding-left: 20px;
+}
+
+.personal-block2{
+    border: 1px solid #C1E7F7;
+    background-color: #F5FBFF;
+    padding: 15px 130px;
+}
+.cloud-change-password-title{
+    background-color: #F5FBFF;
+    border: 1px solid #C1E7F7;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.personal-block1 .tooltip-inner{
+    background-color: #3784D2;
+    padding: 0 8px;
+}
+.personal-block1 .tooltip-arrow{
+    display: none;
+}
+.personal-block2 .red,
+.cloud-change-password-block .red{
+    color: #FF0000;
+    width: 10px;
+    display: inline-block;
+}
+.personal-block2 .blank{
+    width: 10px;
+    display: inline-block;
+}
+
+/*********************CDN****************************/
+.cloud-cdn-block2{
+    border-top: 1px solid #AAAAAA;
+    border-bottom: 1px solid #AAAAAA;
+    margin-top: 15px;
+    padding: 45px 50px;
+}
+.cloud-cdn-block2 .thumbnail{
+    width: 145px;
+    height: 103px;
+    padding: 0;
+    border: 0;
+    margin-bottom: 15px;
+}
+.cloud-cdn-block2 .btn{
+    width: 105px;
+}
+
+/*********************DNS****************************/
+/*登录*/
+.cloud-dns-block2{
+    background-color: #F6F6F6;
+    margin-top: 30px;
+    padding: 15px;
+}
+.cloud-dns-block2 .well{
+    width: 567px;
+    background-color: #ffffff;
+    border: 1px solid #A0A0A0;
+    margin: 0 auto;
+    padding: 0 15px 15px 15px;
+}
+.cloud-dns-block2 .well .header h3{
+    font-size: 18px;
+    color: #000000;
+    border-bottom: 4px solid #787878;
+    text-align: left;
+}
+/*
+.cloud-dns-block2 .well .footer .btn{
+    width: 180px;
+    height: 24px;
+    line-height: 24px;
+}*/
+.cloud-dns-block2 .well .body{
+    width: 480px;
+    border-bottom: 1px solid #A0A0A0;
+    margin: 10px auto;
+    padding: 10px 20px;
+}
+.cloud-dns-block2 .well .body .input{
+    line-height: 48px;
+}
+.cloud-dns-block2 .well .body input[type="text"],
+.cloud-dns-block2 .well .body input[type="password"] {
+    width: 342px;
+    height: 40px;
+    background-color: #F0EEF0;
+}
+.cloud-dns-block2 .well .body .noaccount{
+    padding-right: 40px;
+}
+.cloud-dns-block2 .well .body label{
+    font-size: 12px;
+}
+.cloud-dns-block2 .well .body .noaccount a{
+    text-decoration: underline;
+    font-size: 12px;
+}
+.cloud-dns-block2 .well .body .alert-error{
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    color: #FF0101;
+    font-size: 12px;
+}
+.cloud-icon-error {
+    background-image: url("../img/icon-error.png");
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 1px;
+    vertical-align: text-bottom;
+    width: 18px;
+}
+.cloud-dns-block2 .well .footer{
+    text-align: center;
+}
+
+/*********************监控宝****************************/
+.cloud-monitor-block2{
+    border-bottom: 1px solid #AAAAAA;
+    padding: 30px 0;
+}
+.cloud-icon-tel {
+    background-image: url("../img/cloud-icon-tel.png");
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 1px;
+    vertical-align: text-bottom;
+    width: 18px;
+}
+.cloud-icon-mail {
+    background-image: url("../img/cloud-icon-mail.png");
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 1px;
+    vertical-align: text-bottom;
+    width: 18px;
+}
+.cloud-monitor-block2 h4{
+    font-size: 14px;
+    font-weight: normal;
+}
+.cloud-monitor-img{
+    border-right: 1px solid #3685D3 ;
+    text-align: center;
+}
+.cloud-monitor-btn{
+    margin-top: 30px;
+}
+.cloud-monitor-btn .btn-primary {
+    height: 25px;
+    padding:12px 5px ;
+}
+.cloud-monitor-btn .btn-primary:active,
+.cloud-monitor-btn .btn-primary.active {
+    height: 25px;
+    padding: 12px 5px;
+}
+.cloud-monitor-btn .b2{
+    width: 120px
+}
+.cloud-icon-plus {
+    background-image: url("../img/cloud-icon-plus.png");
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 22px;
+}
+
+/*********************云防护*********************/
+/*快速设置*/
+.cloud-quikly-setting{
+    background-color: #CFEAF8;
+    border: 0 none;
+    padding: 5px 20px;
+}
+
+/*******************所有内容页通用************************/
+.cloud-page-title{
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 30px;
+}
+.cloud-page-title-line{
+    border-top: 1px solid #398ADD;
+    border-bottom: 1px solid #398ADD;
+    margin: 15px 0;
+}
+
+.has-error .help-block i{
+    color:#E9322D;
+}
+/*********************页面说明部分****************************/
+.cloud-block1{
+    background-color: #F6F6F6;
+    border-top: 2px solid #398ADD;
+    margin-top: 30px;
+    padding: 15px;
+}
+.cloud-block1 h1{
+    color: #3685d3;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: normal;
+}
+.cloud-block1 h1 small{
+    font-size: 12px;
+    color: #333333;
+}
+.cloud-block1 div{
+    font-size: 12px;
+    line-height: 25px;
+}
+
+/*********************工具栏和表格****************************/
+/*工具条*/
+.cloud_tool{
+    margin: 20px 0;
+}
+
+/*表格*/
+.cloud-grid {
+
+    text-align: center;
+}
+.cloud-grid .ngTopPanel {
+    background-color: #F6F6F6;
+    border-top: 1px solid #D5D5D5;
+    border-bottom: 0;
+    padding: 4px 0;
+}
+.cloud-grid .ngRow{
+    border-top: 1px solid #D5D5D5;
+}
+.cloud-grid .ngHeaderText{
+    color: #3685d3;
+    font-size: 12px;
+    font-weight: normal;
+}
+.cloud-grid .ngRow.even,
+.cloud-grid .ngRow.odd{
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #BFBFBF;
+}
+.cloud-grid .ngCell .ngVerticalBar{
+    background-color: #FFFFFF;
+}
+.cloud-grid .ngRow.selected{
+    background-color: #F0F0F0;
+}
+
+.cloud-grid .ngCell .ngCellText{
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+/*********************各种小摘要栏***************************/
+/*蓝色框的小摘要栏*/
+.cloud-blue-border-title{
+    background-color: #F5FBFF;
+    border: 1px solid #C1E7F7;
+    padding: 10px;
+    margin: 10px 0;
+}
+.cloud-blue-border-title span{
+    color: #3685d3;
+}
+.cloud-blue-border-title span.small{
+    color: #3685d3;
+    font-size: 12px;
+}
+
+.cloud-blue-border-title span.small.normalcolor{
+    font-size: 12px;
+    color: #333333;
+}
+.cloud-blue-border-title p.small{
+    font-size: 12px;
+}
+
+/*橙色框的小摘要栏*/
+.cloud-orage-title{
+    background-color: #fcf8e3;
+    border: 1px solid #f0cf96;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #3685d3;
+}
+
+/*无边框无颜色的小摘要栏*/
+.cloud-white-title{
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.cloud-white-title span.blue{
+    color: #3685d3;
+}
+
+.cloud-grey-title{
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 12px;
+    border: 1px solid #e6e6e6;
+}
+/*********************各种列中的状态样式****************************/
+.cloud-grid .ngCell .green,
+.cloud-grid .ngCell .black,
+.cloud-grid .ngCell .gray,
+.cloud-grid .ngCell .red{
+    width: 98px;
+    height: 17px;
+    display: inline-block;
+    border-radius: 4px;
+    line-height: 17px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.cloud-grid .ngCell .green{
+    background-color: #488D0E;
+}
+.cloud-grid .ngCell .black{
+    background-color: #312F30;
+}
+.cloud-grid .ngCell .gray{
+    background-color: #90999E;
+}
+.cloud-grid .ngCell .red{
+    background-color: #BC352F;
+}
+
+/*负载均衡状态样式*/
+.cloud-load-grid .ngCell .green:after{
+    content: "活跃";
+}
+.cloud-load-grid .ngCell .black:after{
+    content: "已终止";
+}
+.cloud-load-grid .ngCell .gray:after{
+    content: "等待中";
+}
+/*负载均衡规则状态样式*/
+.cloud-loadrule-grid .ngCell .green:after{
+    content: "运行";
+}
+.cloud-loadrule-grid .ngCell .red:after{
+    content: "停止";
+}
+
+/*云主机列表：状态*/
+.cloud_host_grid .ngCell .creating i,
+.cloud_host_grid .ngCell .shutdown i,
+.cloud_host_grid .ngCell .start i,
+.cloud_host_grid .ngCell .poweroff i{
+    font-size: 12px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 14px;
+    padding-right: 10px;
+    background-image: url("../img/host-status-icon.png");
+}
+
+.cloud_host_grid .ngCell .creating i{
+    width: 91px;
+    background-image: url("../img/opening.png");
+}
+.cloud_host_grid .ngCell .poweroff i{
+    background-position: -6px -4px;
+}
+.cloud_host_grid .ngCell .start i{
+    background-position: -6px -44px;
+   /* padding-right: 0;*/
+}
+.cloud_host_grid .ngCell .shutdown i{
+    background-position: -6px -88px
+}
+
+/*云主机：云防护是否已开启*/
+.cloud_host_grid .ngCell .open i,
+.cloud_host_grid .ngCell .closed i{
+    font-size: 12px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 5px;
+    vertical-align: text-top;
+    width: 30px;
+    padding-right: 10px;
+    background-image: url("../img/host-status-icon2.png");
+}
+.cloud_host_grid .ngCell .open i{
+    background-position: 0 -4px;
+}
+.cloud_host_grid .ngCell .closed i{
+    background-position: 0 -45px;
+}
+/****************************弹窗样式*****************************/
+.cloud-modal{
+    background-color: #E2E2E2;
+    border-radius: 6px;
+    border: 1px solid #C0C0C0;
+    box-shadow: 0 1px 0 #FFFFFF inset;
+    padding: 7px;
+}
+.cloud-modal .modal-header{
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 0 0;
+    border-top: 1px solid #C0C0C0;
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    border-bottom: 0;
+}
+.cloud-modal .modal-header h3{
+    font-size: 18px;
+}
+.cloud-modal .modal-body{
+    background-color: #FFFFFF;
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    text-align: center;
+}
+.cloud-modal .modal-footer{
+    background-color: #FFFFFF;
+    border-radius: 0 0 6px 6px;
+    border-bottom: 1px solid #C0C0C0;
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    border-top: 0;
+    text-align: center;
+}
+.cloud-modal .cloud-modal-divider{
+    margin: 10px 0 0 0;
+    border: 0;
+    border-top: 3px solid #999999;
+}
+.cloud-modal .cloud-icon-info{
+    background-image: url("../img/cloud-icon-info.png");
+    background-position: 0 0;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.cloud-modal .modal-body .cloud-modal-info{
+    line-height: 30px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+/*大弹窗底部分割线*/
+.cloud-modal .big-modal-footer-hr{
+    border: 0;border-top:
+    2px solid #d2d2d2;
+    margin-top: 0;
+}
+
+.modal-hr-1px{
+    border: 0;border-top:
+    1px solid #BFBFBF;
+    margin-top: 0px;
+}
+
+/*有步骤的弹窗*/
+.cloud-step-title-bg{
+    background-color: #F2F2F2;
+    height: 90px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*弹窗中的按钮试单选按钮样式*/
+
+.cloud-btn-checkbox{
+    display:block; float:left; width:69px; height:28px; line-height:28px;
+    text-align:center;
+    background:url(../img/counter_btn.gif) no-repeat 0 0;
+    margin-right:8px; font-size:12px; cursor:pointer;
+    border:0px;}
+.cloud-btn-checkbox.active{ background-position:0 -28px;border:0px;}
+.cloud-btn-checkbox-long{
+    display:block; float:left;width:170px;height:28px; line-height:28px;
+    text-align:center;
+    background:url(../img/counter_btn-long.gif) no-repeat 0 0;
+    margin-right:8px; font-size:12px; cursor:pointer;
+    border:0px;}
+.cloud-btn-checkbox-long.active{background-position: 0 -28px;border:0px;}
+
+/*.cloud-btn-checkbox{
+    background-color: #FFFFFF;
+    background-image: none;
+    color: #333333;
+}
+.cloud-btn-checkbox.active{
+    color: rgba(255, 255, 255, 0.75);
+}
+.cloud-btn-checkbox:hover,
+.cloud-btn-checkbox:focus,
+.cloud-btn-checkbox:active,
+.cloud-btn-checkbox.active,
+.cloud-btn-checkbox.disabled,
+.cloud-btn-checkbox[disabled] {
+    color: #ffffff;
+    background-color: #19A1DB;
+    *background-color: #19A1DB;
+}
+
+.cloud-btn-checkbox:active,
+.cloud-btn-checkbox.active {
+    background-color: #FFFFFF \9;
+}*/
+
+
+
+/****************************弹窗中的form表单**********************/
+.cloud-form{
+    text-align: left !important;
+}
+.cloud-form .well{
+    background-color: #CFEAF8;
+    border-color: #C1E7F7;
+}
+.cloud-form .well .cloud-data-desc{
+    font-size: 12px;
+}
+.cloud-form .well hr{
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #d2d2d2;
+}
+.cloud-form .well-small{
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
+.cloud-form-text-blue{
+    color: #3785D1;
+    font-size: 12px;
+}
+.cloud-input-form .row-fluid{
+    margin: 10px 0;
+}
+
+/*表单中的表格*/
+.cloud-memory-rule-form-table td{
+    text-align: center;
+    font-size: 12px;
+}
+.cloud-memory-rule-form-table input[type="text"],
+.cloud-memory-rule-form-table input[type="url"],
+.cloud-memory-rule-form-table input[type="number"]{
+    width: 44px;
+    height: 18px;
+    padding: 2px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+ .cloud-memory-rule-form-table select{
+    width: 70px;
+    height: 24px;
+    padding: 2px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+ /*表单*/
+.cloud-form{margin: 0;}
+
+/*滑动条*/
+.cloud-slider-input{
+    color: #ff6600;margin-left: 20px;
+    margin-right: 10px;
+}
+.cloud-slider-text{
+    width:200px;height:20px;font-size: 12px;position: relative; top: -20px;
+}
+.cloud-slider{
+    width: 200px;
+    float:left;
+}
+
+/*咨询帮助*/
+.cloud-support ul{
+    padding: 25px;
+    margin: 0;
+}
+.cloud-support li {
+    overflow: hidden;
+}
+.cloud-support .li01 {
+    background: url("../img/icon-win.png") no-repeat scroll 110px 10px rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #CCCCCC;
+    color: #006699;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    padding-bottom: 10px;
+    padding-left: 160px;
+}
+.cloud-support .li02, .cloud-support .li03, .cloud-support .li04 {
+    border-bottom: 1px dotted #006699;
+    color: #000000;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    padding-left: 90px;
+    width: 245px;
+}
+.cloud-support .li02 {
+    background: url("../img/icon-win.png") no-repeat scroll 35px -65px rgba(0, 0, 0, 0);
+}
+.cloud-support .li03 {
+    background: url("../img/icon-win.png") no-repeat scroll 35px -137px rgba(0, 0, 0, 0);
+}
+.cloud-support .li04 {
+    background: url("../img/icon-win.png") no-repeat scroll 35px -217px rgba(0, 0, 0, 0);
+}
+
+/*登录页面*/
+/*.loginform {
+    background: url(../img/win);
+}*/
+
+/*.loginform { display:block; background:url(../img/win-close.png) no-repeat ; width:22px; height:22px; position:absolute; top:5px; right:10px;}*/
+.inloginform{ background:url(../img/login.png) no-repeat ; width:537px; height:343px; margin:80px auto 0 auto;font-size:14px;}
+.inloginform H2{ height:38px; margin-top:15px; line-height:65px; color:#fff; font-size:16px; padding-left: 30px; }
+.inloginform form{ width:350px; margin:20px 0 0 85px; }
+.inloginform form dl{ overflow:hidden;  }
+.inloginform form dt{ line-height:30px;}
+.inloginform form dt b{color:#0472b4; }
+.inloginform form dt span{ color:#666; font-size:12px; padding-left:10px;}
+.inloginform form dd{ position:relative; margin-bottom: 10px; }
+.inloginform form dd input{ width:260px; height:32px; line-height:32px; background:url(../img/input_bg.gif) repeat-x;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box; padding:0 20px 0 50px;}
+.inloginform form dd input:focus{border-color: #66afe9;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);}
+.inloginform form dd .icon-usn{ background:url(../img/icon-login.png) no-repeat; width:14px; height:12px; position:absolute; left:20px; top:10px; }
+.inloginform form dd .icon-psw{ background:url(../img/icon-login.png) 0 -83px no-repeat; width:14px; height:14px; position:absolute; left:20px; top:10px; }
+.inloginform form .msg{ height:30px;padding-top:0px;}
+.inloginform form .msg input{margin-right:15px;}
+.inloginform form .sub{ cursor:pointer;background:url(../img/bt-login.gif) no-repeat; width:140px; height:41px; border:0;margin-top:5px;}

@@ -1,0 +1,30 @@
+
+<div class="container-fluid">
+    <!--说明-->
+    <div class="clearfix cloud-block1">
+        <h1>负载均衡</h1>
+        <!--<div>{{text}}</div>-->
+        <div ng-bind="description"></div>
+    </div>
+
+    <!--工具条-->
+    <div class="clearfix cloud_tool">
+        <div class="pull-left">
+            <button class="btn btn-warning" ng-click="create()"><i class="icon-plus icon-white"></i>&nbsp;创建负载均衡</button>
+            <button class="btn" ng-click="deleteitem()" ng-disabled="!deleteBtn"><i class="icon-remove"></i>&nbsp;删除</button>
+            <button class="btn btn-inverse" ng-click="refresh()"><i class="icon-repeat icon-white"></i></button>
+        </div>
+
+        <div class="pull-right input-append" >
+            <input id="" type="text" ng-model="filterOptions.filterText">
+            <button class="btn" type="button"><i class="icon-search"></i></button>
+        </div>
+
+    </div>
+
+    <!--列表-->
+    <div class="cloud-grid cloud-load-grid" ng-grid="gridOptions">
+    </div>
+</div>
+
+

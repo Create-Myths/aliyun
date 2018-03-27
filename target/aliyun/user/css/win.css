@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,*,html,div,h1,h2,h3,p,ul,li,span,form,input,td,th{ margin:0; padding:0;}
+body{ background:#fff; font-size:12px;  font-weight:normal; color:#666;behavior:url("file:///C|/Users/yf-zj-200/Desktop/csshover.htc");
+min-height:100%;
+_height:100%;
+position:relative;}
+*{font-family:"微软雅黑";}
+html{height:100%;}
+
+a,img,td{ border:0;}
+a{ text-decoration:none; color:#369;}
+li{ list-style:none;}
+
+input, select{outline: medium none;}
+ input {border:1px solid #ccc;}
+ textarea {border:1px solid #ccc;}
+
+.z{ float:left;}
+.y{ float:right;}
+.ov{ overflow:hidden;}
+.cl{ clear:both; height: 0px; }
+.mb13{ margin-bottom:13px;}
+.pd15{ padding:15px;}
+.c369{ color:#369;cursor:pointer;}
+
+.h0{ height:0;}
+.ml30{margin-left:30px;}
+.mr30{margin-right:30px;}
+.mr10{margin-right:10px;}
+.mt20{margin-top:20px;}
+.dis{display:block;}
+.undis{display:none;}
+
+
+
+.panle01{z-index:1050;height:auto;background-color:#e2e2e2;border:1px solid #bfbfbf;margin:0 auto 0 auto;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box; display:block;}
+.panle02{z-index:1050;height:auto;background-color:#fff;border:1px solid #bfbfbf;margin:10px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box; display:block; padding:10px; }
+.panle02 .tit{ height:35px;  color:#333; font-size:16px; font-weight:bold; border-bottom:3px solid #999; overflow:hidden;}
+.panle02 .tit h2{ float:left; font-size:18px; margin-left:10px; }
+.panle02 .tit a{ display:block; width:17px; height:17px; background:url(../images/bt-close.gif) no-repeat;margin:5px 10px 0 0;}
+.cont{ font-size:14px;color:#333; }
+.cont dl{ overflow:auto; margin-top: 15px; }
+.cont dt{ width:80px; text-align:right; color:#333; font-weight:bold; }
+.cont dt,.cont dd{ float:left; line-height:32px;}
+.cont dt{margin-right:10px}
+.cont .txt{ height:32px; line-height:32px; background:url(../images/input_bg.gif) repeat-x; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; -webkit-background-clip:padding-box; -moz-background-clip:padding-box; width:240px; padding: 0 15px; }
+.cont .txt:focus,.cont select:focus{border-color: #66afe9;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);}
+.cont select{ height:28px; line-height:28px;}
+.cont .msg01{ background:#fcf8e3; margin-top: 15px; color:#3685d3; line-height:25px; border:1px solid #f0cf96 }
+.cont .msg01 span.sp1{ background:url(../images/icon-warm.png) 0 1px no-repeat; padding-left:30px; display:block; }
+.cont .msg02{ font-size:16px; color:#333; height:40px; line-height:40px; background:url(../images/icon-warm.png) no-repeat 0 -162px;padding-left:45px;}
+.cont  p{ line-height:30px; }
+.cont .tip{ background:#f5fbff; border:1px solid #c1e7f7; margin: 15px 0 10px 0; color: #3685d3; }
+.divbt{ width:180px; margin:30px auto 15px auto; overflow:hidden; }
+.cont .z dt{ width:90px;}
+.cont .z dd span{ color:#666; line-height:30px;  font-size:12px}
+.cont .z select{ width:90px;}
+.cont .y li{ width:165px;margin-right:23px;}
+.cont .y li a{margin-bottom:10px; background:#e3f4fb ; text-align:center; display:block; height:30px;-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; -webkit-background-clip:padding-box; -moz-background-clip:padding-box; line-height:30px;}
+.cont .y li a:hover{ background:#c1e7f7;}
+.cont .y li.li0{ font-size:16px;color:#3685d3; height:30px; line-height:40px; margin-bottom:10px;}
+
+
+.divbt button{ height:34px; line-height:30px; width:70px; display:block; cursor:pointer; font-size:14px; color:#fff;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;}
+.divbt .sub{ background:#3685d3; border:1px solid #0C3E67;}
+.divbt .cancle{ background:#255a8e; border:1px solid #255a8e;}

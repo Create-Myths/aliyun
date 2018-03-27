@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content .w1000{ background:#fff;}
+.left{ float:left; width:220px;}
+.right{ margin-left:220px; border:1px solid #ddd; padding-bottom: 60px; min-height:585px; }
+
+
+.left ul{}
+.left li{ height:40px; overflow:hidden; line-height:42px; font-size:14px; }
+.left li a{color:#666; display:block;  height:38px;padding:0 20px;margin:0 2px; border-bottom:1px solid #ddd;}
+.left li a:hover{ font-weight:600; background:#eff5f8; color:#08c}
+.left li.on a{font-weight:600; background:#eff5f8; color:#08c}
+.left li.tit{ color:#08c; font-size:16px; background:#ececec; position:relative; padding:0 0 0 22px; margin:0 0 2px 0; }
+.left li.tit div{ width:5px; height:40px; background:#178eea; position:absolute; left:0; top:0; }
+
+.right h1{ font-size:32px; color:#333;margin:32px 30px 20px 30px;}
+.right p{ line-height:30px; font-size:14px; color:#333; }
+.button01{ background:url(../images/pro_button.gif) no-repeat; width:142px; height:38px; text-align:center; color:#fff; font-size:18px; display:block; line-height:38px}
+.right h2{ height:40px; line-height:40px; font-size:16px; background:#f1f1f1; padding-left:30px; color:#333; font-weight:600; margin-bottom: 15px; }
+.right .pro_spc li{ float:left; width:310px; height:160px; padding-top: 15px; margin-right: 35px; }
+.right .pro_spc li h4{ font-size:18px; font-weight:600; margin-bottom:15px; color: #06C; }
+.right table{ border:1px solid #ddd; font-size:14px; border-bottom:0;}
+.right th{ background:#f1f1f1; padding:8px; border-bottom:1px solid #ccc; border-right:1px solid #ccc;}
+.right td{ padding:5px 10px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; }
+.right tr th:last-child,.right tr td:last-child{ border-right:0;}
+
+
+.contact_li li{ line-height:30px; background:url(../images/contact_icon.gif) no-repeat left center; padding-left:25px; }
+
+.counter_cont{ margin:30px 30px 0;}
+.counter_cont dl{ float:left; margin-bottom:15px; width:100%; }
+.counter_cont dt,.counter_cont dd{font-size:14px;line-height:28px;float:left;}
+.counter_cont dt{ width:100px; text-align:right; font-weight:bold;}
+.counter_cont dd{ margin-left:15px; color:#333;}
+.counter_cont dd.pt7 { padding-top:7px}
+.counter_cont dd.button a{ display:block; float:left; width:69px; height:28px; line-height:28px; text-align:center; /*color:#000;*/ background:url(../images/counter_btn.gif) no-repeat 0 0; margin-right:8px; font-size:12px; cursor:pointer; }
+.counter_cont dd a.button-long{ background:url(../images/counter_btn-long.gif) no-repeat; width:120px;}
+.counter_cont dd a.button-long:hover{ background:url(../images/counter_btn-long.gif) no-repeat 0 -28px;}
+.counter_cont dd em{ font-size:14px; color:#666; font-style:normal;margin-top:18px;}
+.counter_cont dd a:hover,.counter_cont dd a.current{ background-position:0 -28px;}
+.mn_result{ border-bottom:1px dashed #ccc;  border-top:1px solid #ccc; margin-top:20px; padding:15px 0;}
+.mn_result dd{ font-size:16px;}
+.mn_result dd span{ font-size:20px; padding-left:10px; }
+
+.hint_box{ width:640px; margin:0 auto; border:1px solid #f5d7b4; background:#fff7ed url(../images/hint_iocn.gif) no-repeat 10px center; font-size:14px; padding:8px 40px; margin-top:50px;}

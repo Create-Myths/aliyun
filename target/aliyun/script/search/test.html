@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="mySearchFilter">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/ng-grid.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="row-fluid">
+    <div class="span3" ng-controller="FilterCtrl">
+        <form class="form-horizontal">
+            <div class="controls-row">
+                <label for="searchTextBox" class="control-label">Search:</label>
+                <div class="controls">
+                    <input type="text"
+                           id="searchTextBox"
+                           ng-model="filterService.searchText">
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+
+    <div class="offset1 span8" ng-controller="ListCtrl">
+        <table>
+            <thead>
+            <tr><th>主机名</th><th>内网IP</th><th>外网IP</th></tr>
+            </thead>
+            <tbody id="hostListTable">
+                <tr ng-repeat="host in hostList | filter:filterService.searchText">
+                    <td>{{host.hostName}}</td>
+                    <td>{{host.innerIP}}</td>
+                    <td>{{host.outerIP}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../../lib/jquery/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+<script src="../../lib/plugins/ui-bootstrap-tpls-0.7.0.min.js"></script>
+<script src="../../lib/plugins/ng-grid.min.js"></script>
+<script src="searchfilter.js"></script>
+</body>
+</html>

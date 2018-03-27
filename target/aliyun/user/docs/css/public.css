@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,*,html,div,h1,h2,h3,p,ul,li,span,form,input,td,th{ margin:0; padding:0;}
+body{ background:#fff; font-size:12px;  font-weight:normal; color:#666;behavior:url("csshover.htc");
+
+min-height:100%;
+_height:100%;
+position:relative;}
+*{font-family:"微软雅黑";}
+html{height:100%;}
+
+h1,h2,h3,h4{font-weight:normal;}
+
+a,img,td{ border:0;}
+a{ text-decoration:none; color:#369;}
+li{ list-style:none;}
+
+input, select{outline: medium none;}
+form input {border:1px solid #ccc;}
+form textarea {border:1px solid #ccc;}
+
+.z{ float:left;}
+.y{ float:right;}
+.ov{ overflow:hidden;}
+.cl{ clear:both; height:0px; }
+.tl{ text-align:left;}
+.tc{ text-align:center;}
+.tr{ text-align:right;}
+.mb13{ margin-bottom:13px;}
+.mc{ margin:0 auto}
+.c369{ color:#369;cursor:pointer;}
+.blue{ color:#486d97;}
+.red{ color:red;}
+
+.h0{ height:0;}
+.h70{ height:70px;}
+.ml30{margin-left:30px;}
+.mr30{margin-right:30px;}
+
+.dis{display:block;}
+.undis{display:none;}
+
+.w1000{ width:1000px; margin:0 auto;  }
+.main{ padding-bottom:270px;min-width:1000px; }
+.content{ background:#f8f8f8; border-top:1px solid #ddd; padding-top:28px; padding-bottom:15px; }
+
+.ding{ height:28px; background: #333; color:#fff; line-height:28px;}
+.ding .znav a{ float:left; display:block; color:#fff; margin-right: 20px; }
+.ding .znav a:hover{ color:#6ff}
+.ding li{ float:left;margin-left:20px; }
+.ding li a{ color:#8DCCE7;}
+.ding li a:hover{ color:#6FF;}
+.ding li.litel{ background:url(../images/icon.png) 0 8px no-repeat;padding-left:15px;padding:0 0px 0 15px;}
+.ding li.liQQ{ background:url(../images/icon.png) 0 -17px no-repeat;padding-left:15px;padding:0 0px 0 15px;}
+
+
+.head{ background:#fff; height: 70px; }
+.head  .logo{margin-top:7px;}
+
+
+/*.menu{ width:435px; margin-top: 25px }
+.menu li{ width:100px; height:29px; float:left; font-size:16px;margin-left:8px; text-align:center; }
+.menu li.on a{color:#fff; background:url(../images/menu-btbg.png) no-repeat;}
+.menu li a{ display:block; width:100px; height:29px; line-height:29px; color:#069;}
+.menu li a:hover{ background:url(../images/menu-btbg.png) no-repeat; color:#fff;}
+*/
+
+
+/*导航菜单*/
+#navMenu { display:block; overflow:hidden; width:435px; margin-top: 25px; height:35px; line-height:29px; position: relative; }
+#navMenu ul{}
+#navMenu .onelink a{color:#fff; background:url(../images/menu-btbg.png) no-repeat;}
+#navMenu li { width:100px; height:35px; float:left; font-size:16px; margin-left:8px; text-align:center; }
+
+#navMenu li a {display:block; width:100px; height:29px; line-height:29px; color:#069;}
+#navMenu li a:hover, #navMenu li.hover a {	background:url(../images/menu-btbg.png) no-repeat; color:#fff;}
+/*-------- 下拉菜单 --------------*/
+.dropMenu {margin-top:10px; position:absolute; z-index:100;  visibility: hidden; border: 1px solid #ddd; border-top: 3px solid #3CA2DC; background-color: #fff;  filter: Alpha(Opacity=85); }
+
+
+
+#dropmenu1{ width:330px; padding:20px;}
+#dropmenu1 dl{ overflow:hidden;}
+#dropmenu1 dd,#dropmenu1 dt{ float:left;}
+#dropmenu1 dt{ color:#999; margin-right:30px; font-size:16px; float: left; }
+#dropmenu1 dd a{ font-size:14px; color:#000; margin-right:20px;}
+#dropmenu1 dd a:hover{color:#08c}
+.amb a{ margin-bottom:10px; display:block; float:left;}
+#dropmenu3{ width:65px; padding:10px 20px 20px 20px;}
+#dropmenu3 li{ height:30px; line-height:30px; border-bottom:1px dotted #aaa; font-size:14px;}
+#dropmenu3 li a{ color:#000;}
+#dropmenu3 li a:hover{ color:#08c}
+
+
+.bner{ height:346px; background:#0065ae url(../images/h_banner.jpg) no-repeat center 0; border-top: 1px solid #333; border-bottom: 1px solid #ddd ; }
+
+/*-------- 备案icon --------------*/
+.ba_icon{margin:22px 0 0 10px; height:38px; width:28px; float:right; border-left:1px solid #9f9f9f; padding:0 20px; }
+
+
+#foot{ position:absolute; bottom:0; height:270px; width:100%; overflow:hidden; background:#393939; border-top:1px solid #000;  border-bottom:1px solid #000; }
+#foot .ft-lg{margin-top:40px; float:left;}
+#foot .y{ width:600px;color:#fff; margin-top:45px;}
+#foot .y ul{ float:left; line-height:30px; width:120px;margin-left:30px ;}
+#foot .y ul a{color:#fff;}
+#foot .y ul li{ list-style:square;margin-left:15px;}
+#foot .y ul .tit{ background:url(../images/ft-tit.gif) no-repeat ; height:38px; text-align:center; line-height:27px;  font-size:14px; font-weight:600; list-style:none;margin-left:0;margin-bottom:10px;}
+#foot .y p{margin-top:10px;}
+#foot .y .ulprd li{ float:left; width:85px;}

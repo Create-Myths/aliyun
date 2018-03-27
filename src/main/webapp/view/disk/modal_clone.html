@@ -1,0 +1,28 @@
+<div class="cloud-modal">
+    <div class="modal-header">
+        <h3>克隆硬盘<button class="close pull-right" ng-click="cancel()">&times;</button></h3>
+        <hr class="cloud-modal-divider">
+    </div>
+    <div class="modal-body cloud-form">
+        <div class="cloud-modal-info">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="cloud-orage-title">
+                            <i class="cloud-icon-info pull-left"></i>
+                            <div style="margin-left: 60px;">创建一块新的硬盘，除了直接创建外，还可以通过克隆已有硬盘的方式。通过克隆，可以完全复制一块硬盘，包括其上的数据。克隆操作也需要在硬盘未挂载在主机上的状态下进行，否则无法保证数据的实时性。</div>
+                        </div>
+                        <div style="padding: 0 30px;">
+                            已选硬盘：{{disk.diskName}}<br>
+                            硬盘容量：{{disk.diskSize}}<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" ng-click="cancel()">取消</button>
+        <button class="btn btn-primary" ng-click="ok()">确定</button>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="ngCellText">
+    <span ng-class="{
+    open: row.getProperty(col.field) == 1,
+    closed: row.getProperty(col.field) == 0
+    }">
+        <i></i>{{row.getProperty(col.field)| hostCloudprotectionFilter}}
+    </span>
+</div>
