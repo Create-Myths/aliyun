@@ -85,7 +85,5 @@ public class ActivitAction {
 		taskService.complete(taskId);
 		return "redirect:/#/cdn";
 	}
-
-
-
+	
 }
